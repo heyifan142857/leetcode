@@ -1,0 +1,1 @@
+add_executable(1695.Maximum_Erasure_Value 1695.Maximum_Erasure_Value.cpp)
