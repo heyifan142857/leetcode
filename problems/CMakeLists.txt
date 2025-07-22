@@ -1,1 +1,2 @@
 add_executable(1695.Maximum_Erasure_Value 1695.Maximum_Erasure_Value.cpp)
+add_executable(1957.Delete_Characters_to_Make_Fancy_String 1957.Delete_Characters_to_Make_Fancy_String.cpp)
