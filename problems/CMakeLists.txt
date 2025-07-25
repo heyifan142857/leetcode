@@ -5,3 +5,4 @@ add_executable(1717.Maximum_Score_From_Removing_Substrings 1717.Maximum_Score_Fr
 add_executable(2322.Minimum_Score_After_Removals_on_a_Tree 2322.Minimum_Score_After_Removals_on_a_Tree.cpp)
 add_executable(3169.Count_Days_Without_Meetings 3169.Count_Days_Without_Meetings.cpp)
 add_executable(2680.Maximum_OR 2680.Maximum_OR.cpp)
+add_executable(3487.Maximum_Unique_Subarray_Sum_After_Deletion 3487.Maximum_Unique_Subarray_Sum_After_Deletion.cpp)
