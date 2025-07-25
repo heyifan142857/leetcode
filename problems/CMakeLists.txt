@@ -6,3 +6,4 @@ add_executable(2322.Minimum_Score_After_Removals_on_a_Tree 2322.Minimum_Score_Af
 add_executable(3169.Count_Days_Without_Meetings 3169.Count_Days_Without_Meetings.cpp)
 add_executable(2680.Maximum_OR 2680.Maximum_OR.cpp)
 add_executable(3487.Maximum_Unique_Subarray_Sum_After_Deletion 3487.Maximum_Unique_Subarray_Sum_After_Deletion.cpp)
+add_executable(2278.Percentage_of_Letter_in_String 2278.Percentage_of_Letter_in_String.cpp)
