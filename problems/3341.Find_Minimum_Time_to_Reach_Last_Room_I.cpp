@@ -21,7 +21,10 @@ public:
 
         timeMap[0][0] = 0;
 
-        priority_queue<timePos> timePosList;
+        auto cmp = [](const timePos& a, const timePos& b) {
+            return a.first > b.first;
+        };
+        priority_queue<timePos, vector<timePos>, decltype(cmp)> timePosList(cmp);
 
         timePosList.push({0, {0, 0}});
 
