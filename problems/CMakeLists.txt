@@ -14,3 +14,4 @@ add_executable(2044.Count_Number_of_Maximum_Bitwise-OR_Subsets 2044.Count_Number
 add_executable(3342.Find_Minimum_Time_to_Reach_Last_Room_II 3342.Find_Minimum_Time_to_Reach_Last_Room_II.cpp)
 add_executable(494.Target_Sum 494.Target_Sum.cpp)
 add_executable(2411.Smallest_Subarrays_With_Maximum_Bitwise_OR 2411.Smallest_Subarrays_With_Maximum_Bitwise_OR.cpp)
+add_executable(3304.Find_the_K-th_Character_in_String_Game_I 3304.Find_the_K-th_Character_in_String_Game_I.cpp)
