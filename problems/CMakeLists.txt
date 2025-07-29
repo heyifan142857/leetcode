@@ -12,4 +12,5 @@ add_executable(3480.Maximize_Subarrays_After_Removing_One_Conflicting_Pair 3480.
 add_executable(2210.Count_Hills_and_Valleys_in_an_Array 2210.Count_Hills_and_Valleys_in_an_Array.cpp)
 add_executable(2044.Count_Number_of_Maximum_Bitwise-OR_Subsets 2044.Count_Number_of_Maximum_Bitwise-OR_Subsets.cpp)
 add_executable(3342.Find_Minimum_Time_to_Reach_Last_Room_II 3342.Find_Minimum_Time_to_Reach_Last_Room_II.cpp)
-add_executable(Target_Sum 494.Target_Sum.cpp)
+add_executable(494.Target_Sum 494.Target_Sum.cpp)
+add_executable(2411.Smallest_Subarrays_With_Maximum_Bitwise_OR 2411.Smallest_Subarrays_With_Maximum_Bitwise_OR.cpp)
