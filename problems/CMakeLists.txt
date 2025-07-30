@@ -15,3 +15,4 @@ add_executable(3342.Find_Minimum_Time_to_Reach_Last_Room_II 3342.Find_Minimum_Ti
 add_executable(494.Target_Sum 494.Target_Sum.cpp)
 add_executable(2411.Smallest_Subarrays_With_Maximum_Bitwise_OR 2411.Smallest_Subarrays_With_Maximum_Bitwise_OR.cpp)
 add_executable(3304.Find_the_K-th_Character_in_String_Game_I 3304.Find_the_K-th_Character_in_String_Game_I.cpp)
+add_executable(2419.Longest_Subarray_With_Maximum_Bitwise_AND 2419.Longest_Subarray_With_Maximum_Bitwise_AND.cpp)
