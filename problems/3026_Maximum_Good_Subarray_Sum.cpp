@@ -36,9 +36,3 @@ public:
         return ans==LONG_LONG_MIN?0:ans;
     }
 };
-
-int main(){
-    Solution s;
-    vector<int> nums = {-1,-2,-3,-4};
-    s.maximumSubarraySum(nums, 2);
-}
