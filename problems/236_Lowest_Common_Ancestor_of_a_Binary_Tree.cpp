@@ -67,10 +67,3 @@ public:
         return ancestor;
     }
 };
-
-int main(){
-    TreeNode* son = new TreeNode(2);
-    TreeNode* root = new TreeNode(1, son, nullptr);
-    Solution s;
-    s.lowestCommonAncestor(root, root, son);
-}
