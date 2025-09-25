@@ -1,0 +1,18 @@
+//
+// Created by user on 2025/9/25.
+//
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class Solution {
+public:
+    int minimumTotal(vector<vector<int>>& triangle) {
+        for (int i = triangle.size()-2; i >= 0; --i) {
+            for (int j = 0; j < triangle[i].size(); ++j) {
+                triangle[i][j] = min(triangle[i+1][j], triangle[i+1][j+1])+triangle[i][j];
+            }
+        }
+        return triangle[0][0];
+    }
+};
