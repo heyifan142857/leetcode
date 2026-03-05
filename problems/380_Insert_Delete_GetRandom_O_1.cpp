@@ -16,7 +16,7 @@ public:
     }
 
     bool insert(int val) {
-        if(mp.contains(val)){
+        if(mp.find(val) != mp.end()){
             return false;
         }
         v.push_back(val);
@@ -25,7 +25,7 @@ public:
     }
 
     bool remove(int val) {
-        if(mp.contains(val)){
+        if(mp.find(val) != mp.end()){
             int index = mp[val];
             mp.erase(val);
             swap(v[index], v.back());
