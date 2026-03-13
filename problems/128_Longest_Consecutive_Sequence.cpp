@@ -11,13 +11,15 @@ class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
         unordered_set set(nums.begin(), nums.end());
+        unordered_set<int> visited;
 
         int max_len = 0;
 
         for (auto n: nums) {
             if(!set.count(n-1)){
                 int cur_len = 0;
-                while (set.count(n)){
+                while (set.count(n) && !visited.count(n)) {
+                    visited.insert(n);
                     cur_len++;
                     n++;
                 }
