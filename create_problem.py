@@ -59,6 +59,8 @@ def main():
         sys.exit(1)
 
     title = sys.argv[1]
+    # Normalize whitespace: collapse newlines and multiple spaces, then strip
+    title = re.sub(r"\s+", " ", title).strip()
 
     try:
         filename = format_filename(title)
