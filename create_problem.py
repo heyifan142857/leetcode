@@ -45,6 +45,9 @@ def create_cpp_file(filepath: str, title: str):
     template = f"""// {title}
 // Created automatically
 // Created at {now}
+
+#include <bits/stdc++.h>
+using namespace std;
 """
 
     with open(filepath, "w", encoding="utf-8") as f:
