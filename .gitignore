@@ -4,6 +4,8 @@ build
 .cache
 .vscode
 __pycache__/
+.venv/
+leetcode_stats_output/
 rust/target/
 *.exe
 *.out
