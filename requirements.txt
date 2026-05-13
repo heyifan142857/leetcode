@@ -1,0 +1,2 @@
+# Required by scripts/leetcode_stats.py for PNG chart generation.
+matplotlib>=3.8

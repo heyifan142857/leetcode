@@ -2,13 +2,14 @@
 
 import argparse
 from datetime import datetime
-import os
+from pathlib import Path
 import re
 import sys
 
 
-CPP_PROBLEMS_DIR = "problems"
-RUST_BIN_DIR = os.path.join("rust", "src", "bin")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+CPP_PROBLEMS_DIR = REPO_ROOT / "problems"
+RUST_BIN_DIR = REPO_ROOT / "rust" / "src" / "bin"
 
 
 def parse_problem_title(title: str) -> tuple[str, str]:
@@ -50,17 +51,21 @@ def format_rust_filename(title: str) -> str:
     return f"p{problem_id}_{problem_name}.rs"
 
 
-def ensure_dir(directory: str):
-    os.makedirs(directory, exist_ok=True)
+def display_path(path: Path) -> str:
+    return str(path.relative_to(REPO_ROOT))
+
+
+def ensure_dir(directory: Path):
+    directory.mkdir(parents=True, exist_ok=True)
 
 
 def current_timestamp() -> str:
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 
-def create_cpp_file(filepath: str, title: str):
-    if os.path.exists(filepath):
-        print(f"File already exists: {filepath}")
+def create_cpp_file(filepath: Path, title: str):
+    if filepath.exists():
+        print(f"File already exists: {display_path(filepath)}")
         return
 
     now = current_timestamp()
@@ -73,15 +78,15 @@ def create_cpp_file(filepath: str, title: str):
 using namespace std;
 """
 
-    with open(filepath, "w", encoding="utf-8") as f:
+    with filepath.open("w", encoding="utf-8") as f:
         f.write(template)
 
-    print(f"File created: {filepath}")
+    print(f"File created: {display_path(filepath)}")
 
 
-def create_rust_file(filepath: str, title: str):
-    if os.path.exists(filepath):
-        print(f"File already exists: {filepath}")
+def create_rust_file(filepath: Path, title: str):
+    if filepath.exists():
+        print(f"File already exists: {display_path(filepath)}")
         return
 
     now = current_timestamp()
@@ -100,10 +105,10 @@ fn main() {{
 }}
 """
 
-    with open(filepath, "w", encoding="utf-8") as f:
+    with filepath.open("w", encoding="utf-8") as f:
         f.write(template)
 
-    print(f"File created: {filepath}")
+    print(f"File created: {display_path(filepath)}")
 
 
 def parse_args():
@@ -134,12 +139,12 @@ def main():
         if args.lang == "rust":
             filename = format_rust_filename(title)
             ensure_dir(RUST_BIN_DIR)
-            filepath = os.path.join(RUST_BIN_DIR, filename)
+            filepath = RUST_BIN_DIR / filename
             create_rust_file(filepath, title)
         else:
             filename = format_cpp_filename(title)
             ensure_dir(CPP_PROBLEMS_DIR)
-            filepath = os.path.join(CPP_PROBLEMS_DIR, filename)
+            filepath = CPP_PROBLEMS_DIR / filename
             create_cpp_file(filepath, title)
     except ValueError as e:
         print(f"Error: {e}")

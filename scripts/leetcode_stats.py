@@ -14,6 +14,7 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 
+REPO_ROOT = Path(__file__).resolve().parents[1]
 CPP_PROBLEM_RE = re.compile(r"^problems/(?P<id>\d+)[_.](?P<title>.+)\.cpp$")
 RUST_PROBLEM_RE = re.compile(r"^rust/src/bin/p(?P<id>\d+)_(?P<title>.+)\.rs$")
 WEEKLY_PROBLEM_RE = re.compile(r"^weekly_contests/(?P<contest>\d+)/Q(?P<question>[1-4])\.cpp$")
@@ -418,7 +419,7 @@ def plot_period(
     except ImportError as exc:
         raise SystemExit(
             "matplotlib is required for plotting. "
-            "Install it with: python -m pip install matplotlib"
+            "Install dependencies with: python3 -m pip install -r requirements.txt"
         ) from exc
 
     start, end = period_window(period, today)
@@ -518,8 +519,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--repo",
         type=Path,
-        default=Path("."),
-        help="Git repository path. Defaults to the current directory.",
+        default=REPO_ROOT,
+        help="Git repository path. Defaults to this repository.",
     )
     parser.add_argument(
         "--period",
@@ -536,7 +537,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("leetcode_stats_output"),
+        default=REPO_ROOT / "leetcode_stats_output",
         help="Directory for generated charts and optional CSV.",
     )
     parser.add_argument(
