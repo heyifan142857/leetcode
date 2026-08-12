@@ -1,6 +1,6 @@
-//
-// Created by user on 2025/9/8.
-//
+// Dijkstra 算法用于求解非负权图中的单源最短路径。
+// 本示例使用优先队列优先处理当前距离最短的节点。
+
 #include <iostream>
 #include <vector>
 #include <queue>

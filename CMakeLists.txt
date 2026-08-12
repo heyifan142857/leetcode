@@ -3,5 +3,6 @@ project(leetcode)
 
 set(CMAKE_CXX_STANDARD 20)
 add_subdirectory(algorithms)
+add_subdirectory(data_structures)
 add_subdirectory(problems)
 add_subdirectory(weekly_contests)

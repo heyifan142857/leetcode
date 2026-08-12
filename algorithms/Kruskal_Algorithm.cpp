@@ -1,3 +1,6 @@
+// Kruskal 算法按边权从小到大选边，以构造图的最小生成树。
+// 并查集用于判断一条候选边是否会形成环。
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -8,7 +11,7 @@ using namespace std;
 // 定义边的结构体
 struct Edge {
     int u, v, weight;
-    
+
     // 重载 < 运算符，以便使用 std::sort 进行排序
     bool operator<(const Edge& other) const {
         return weight < other.weight;
@@ -62,7 +65,7 @@ public:
 // 返回: 最小生成树的边列表
 vector<Edge> kruskal(int n, vector<Edge>& edges) {
     vector<Edge> mst;
-    
+
     // 1. 将所有边按权重从小到大排序
     sort(edges.begin(), edges.end());
 
@@ -78,7 +81,7 @@ vector<Edge> kruskal(int n, vector<Edge>& edges) {
         if (uf.find(u) != uf.find(v)) {
             mst.push_back(edge); // 加入 MST
             uf.unite(u, v);      // 合并集合
-            
+
             // 优化：如果已经选够了 n-1 条边，可以提前结束
             if (mst.size() == n - 1) {
                 break;
@@ -93,7 +96,7 @@ int main() {
     // --- 测试数据 ---
     // 假设我们有 5 个顶点 (0 到 4)
     int numVertices = 5;
-    
+
     // 定义边: {u, v, weight}
     // 图结构示例:
     // 0 --(1)-- 1
@@ -109,7 +112,7 @@ int main() {
         {1, 2, 3},
         {1, 3, 2},
         {2, 3, 5},
-        {3, 4, 6} 
+        {3, 4, 6}
     };
 
     cout << "运行 Kruskal 算法..." << endl;
@@ -121,12 +124,12 @@ int main() {
     cout << "最小生成树包含的边:" << endl;
     cout << "顶点 U -- 顶点 V : 权重" << endl;
     cout << "------------------------" << endl;
-    
+
     if (result.size() != numVertices - 1) {
         cout << "警告: 图不连通，无法生成完整的最小生成树!" << endl;
     } else {
         for (const auto& edge : result) {
-            cout << "   " << edge.u << "  --  " << edge.v 
+            cout << "   " << edge.u << "  --  " << edge.v
                  << " : " << edge.weight << endl;
             totalWeight += edge.weight;
         }

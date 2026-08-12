@@ -1,6 +1,6 @@
-//
-// Created by user on 2025/9/11.
-//
+// Bellman-Ford 算法用于求解带负权边的单源最短路径。
+// 它通过反复松弛所有边更新距离，并能检测从源点可达的负权环。
+
 #include <iostream>
 #include <vector>
 #include <climits>

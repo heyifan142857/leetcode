@@ -1,6 +1,6 @@
-//
-// Created by user on 2025/7/2.
-//
+// 插入排序逐个取出元素，并将其插入前方已经有序的区间。
+// 它实现简单且适合小规模或接近有序的数据。
+
 #include <iostream>
 #include <vector>
 

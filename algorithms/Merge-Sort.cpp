@@ -1,6 +1,6 @@
-//
-// Created by user on 2025/7/3.
-//
+// 归并排序将序列递归拆分，再合并两个已经有序的子序列。
+// 它的时间复杂度稳定为 O(n log n)，但需要额外存储空间。
+
 #include <iostream>
 #include <vector>
 

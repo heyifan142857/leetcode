@@ -1,6 +1,6 @@
-//
-// Created by user on 2025/9/8.
-//
+// 并查集用于维护若干互不相交的集合，并支持查询与合并操作。
+// 路径压缩和按秩合并可以显著降低连续操作的时间开销。
+
 #include <iostream>
 #include <vector>
 using namespace std;

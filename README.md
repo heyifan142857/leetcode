@@ -4,10 +4,27 @@ This repository stores my LeetCode problem-solving practice in C++ and Rust.
 
 ## Structure
 
+- `algorithms/`: standalone C++ algorithm examples
+- `data_structures/`: standalone C++ data structure examples
 - `problems/`: regular C++ LeetCode problems
 - `rust/src/bin/`: regular Rust LeetCode problems managed by Cargo
 - `weekly_contests/`: C++ weekly contest folders
 - `scripts/`: Python helper scripts
+
+## Data Structures
+
+The `data_structures/` directory currently contains:
+
+- `Huffman-Tree.cpp`: builds a Huffman tree and demonstrates encoding and decoding
+- `Threaded-Binary-Tree.cpp`: creates an inorder-threaded binary tree and traverses it without a stack
+- `Union-Find.cpp`: implements disjoint-set union with path compression and union by rank
+
+Each file is an independent executable. Build all C++ examples with CMake:
+
+```bash
+cmake -S . -B build
+cmake --build build
+```
 
 ## Scripts
 

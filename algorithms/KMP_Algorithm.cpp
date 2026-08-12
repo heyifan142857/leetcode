@@ -1,3 +1,6 @@
+// KMP 算法利用模式串的前后缀信息避免文本指针回退。
+// 本示例包含 next、nextval 的构建以及字符串匹配过程。
+
 #include <cstddef>
 #include <iostream>
 #include <string>
