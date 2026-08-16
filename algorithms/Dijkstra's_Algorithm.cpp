@@ -1,10 +1,10 @@
 // Dijkstra 算法用于求解非负权图中的单源最短路径。
 // 本示例使用优先队列优先处理当前距离最短的节点。
 
-#include <iostream>
-#include <vector>
-#include <queue>
 #include <climits>
+#include <iostream>
+#include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -23,16 +23,14 @@ struct Node {
 
 // 用于优先队列的比较函数
 struct CompareNode {
-    bool operator()(const Node* a, const Node* b) {
-        return a->dist > b->dist;
-    }
+    bool operator()(const Node *a, const Node *b) { return a->dist > b->dist; }
 };
 
 class Graph {
-private:
+  private:
     vector<Node> nodes; // 图中的所有节点
 
-public:
+  public:
     Graph(int n) {
         nodes.resize(n);
         for (int i = 0; i < n; i++) {
@@ -53,15 +51,15 @@ public:
         nodes[start].dist = 0;
 
         // 使用优先队列（最小堆）
-        priority_queue<Node*, vector<Node*>, CompareNode> pq;
+        priority_queue<Node *, vector<Node *>, CompareNode> pq;
         pq.push(&nodes[start]);
 
         while (!pq.empty()) {
-            Node* current = pq.top();
+            Node *current = pq.top();
             pq.pop();
 
             // 遍历当前节点的所有邻接节点
-            for (const Edge& edge : current->edges) {
+            for (const Edge &edge : current->edges) {
                 int newDist = current->dist + edge.weight;
 
                 // 如果找到更短的路径，则更新
@@ -76,11 +74,12 @@ public:
     // 打印结果
     void printDistances(int start) {
         cout << "从节点 " << start << " 到各节点的最短距离:" << endl;
-        for (const Node& node : nodes) {
+        for (const Node &node : nodes) {
             if (node.dist == INT_MAX) {
                 cout << "到节点 " << node.id << " 的距离: 不可达" << endl;
             } else {
-                cout << "到节点 " << node.id << " 的距离: " << node.dist << endl;
+                cout << "到节点 " << node.id << " 的距离: " << node.dist
+                     << endl;
             }
         }
     }
