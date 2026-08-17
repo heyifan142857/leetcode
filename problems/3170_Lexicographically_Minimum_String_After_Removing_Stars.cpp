@@ -2,7 +2,6 @@
 // Created by user on 2025/8/10.
 //
 
-#include <algorithm>
 #include <stack>
 #include <string>
 #include <vector>

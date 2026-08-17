@@ -3,7 +3,7 @@
 //
 
 #include <algorithm>
-#include <valarray>
+#include <cmath>
 #include <vector>
 
 using namespace std;

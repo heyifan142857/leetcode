@@ -1,7 +1,11 @@
 //
 // Created by azote on 1/27/26.
 //
+#include <algorithm>
+#include <functional>
 #include <queue>
+#include <tuple>
+#include <utility>
 #include <vector>
 using namespace std;
 

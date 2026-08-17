@@ -3,6 +3,8 @@
 // Created at 2026-04-07 13:42:16
 
 #include <bits/stdc++.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 class Robot {

@@ -2,6 +2,9 @@
 // Created by user on 2025/9/21.
 //
 #include <bits/stdc++.h>
+#include <set>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 class MovieRentingSystem {

@@ -2,7 +2,12 @@
 // Created automatically
 // Created at 2026-04-12 09:41:00
 
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <cstdlib>
+#include <functional>
+#include <string>
+#include <vector>
 using namespace std;
 
 class Solution {

@@ -1,6 +1,7 @@
 //
 // Created by user on 2025/10/3.
 //
+#include <functional>
 #include <queue>
 #include <tuple>
 #include <vector>

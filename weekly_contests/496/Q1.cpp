@@ -3,6 +3,10 @@
 // Created at 2026-04-05 17:31:25
 
 #include <bits/stdc++.h>
+#include <cctype>
+#include <cstdlib>
+#include <string>
+#include <vector>
 using namespace std;
 
 class Solution {

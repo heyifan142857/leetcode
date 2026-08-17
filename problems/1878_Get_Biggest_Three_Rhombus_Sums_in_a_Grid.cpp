@@ -2,6 +2,8 @@
 // Created automatically
 // Created at 2026-03-16 10:54:14
 #include <bits/stdc++.h>
+#include <set>
+#include <vector>
 using namespace std;
 
 class Solution {

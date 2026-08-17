@@ -3,6 +3,7 @@
 // Created at 2026-06-08 16:05:36
 
 #include <bits/stdc++.h>
+#include <vector>
 using namespace std;
 
 class Solution {

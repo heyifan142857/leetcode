@@ -1,7 +1,7 @@
 //
 // Created by user on 2025/10/1.
 //
-#include <stack>
+#include <algorithm>
 #include <string>
 #include <vector>
 using namespace std;

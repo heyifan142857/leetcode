@@ -3,6 +3,7 @@
 // Created at 2026-03-21 16:21:44
 
 #include <bits/stdc++.h>
+#include <climits>
 using namespace std;
 
 class Solution {

@@ -2,7 +2,10 @@
 // Created automatically
 // Created at 2026-08-09 20:41:22
 
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <functional>
+#include <vector>
 using namespace std;
 
 class Solution {

@@ -3,6 +3,9 @@
 // Created at 2026-03-26 10:11:54
 
 #include <bits/stdc++.h>
+#include <climits>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Solution {

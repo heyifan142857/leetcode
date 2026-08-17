@@ -2,7 +2,15 @@
 // Created automatically
 // Created at 2026-04-12 09:40:41
 
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <cmath>
+#include <functional>
+#include <numeric>
+#include <tuple>
+#include <unordered_map>
+#include <utility>
+#include <vector>
 using namespace std;
 
 class Solution {

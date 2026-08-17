@@ -3,6 +3,7 @@
 //
 
 #include <bits/stdc++.h>
+#include <functional>
 #include <vector>
 using namespace std;
 

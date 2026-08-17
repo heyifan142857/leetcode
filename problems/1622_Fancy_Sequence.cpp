@@ -3,6 +3,8 @@
 // Created at 2026-03-15 16:22:07
 
 #include <bits/stdc++.h>
+#include <utility>
+#include <vector>
 using namespace std;
 
 class Fancy {

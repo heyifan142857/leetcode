@@ -2,6 +2,7 @@
 // Created automatically
 // Created at 2026-08-12 19:12:47
 
+#include <algorithm>
 #include <unordered_map>
 #include <vector>
 using namespace std;

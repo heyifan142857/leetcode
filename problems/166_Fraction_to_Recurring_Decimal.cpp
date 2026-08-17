@@ -1,7 +1,7 @@
 //
 // Created by user on 2025/9/24.
 //
-#include <cmath>
+#include <cstdlib>
 #include <string>
 #include <unordered_map>
 using namespace std;

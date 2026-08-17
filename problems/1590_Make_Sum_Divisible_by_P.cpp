@@ -1,6 +1,7 @@
 //
 // Created by azote on 11/30/25.
 //
+#include <algorithm>
 #include <unordered_map>
 #include <vector>
 using namespace std;

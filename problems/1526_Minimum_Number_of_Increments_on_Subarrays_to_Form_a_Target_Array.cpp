@@ -1,6 +1,7 @@
 //
 // Created by user on 2025/10/30.
 //
+#include <algorithm>
 #include <vector>
 
 using namespace std;

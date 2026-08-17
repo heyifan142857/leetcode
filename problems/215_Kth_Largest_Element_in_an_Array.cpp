@@ -2,6 +2,7 @@
 // Created by user on 2025/9/23.
 //
 #include <queue>
+#include <vector>
 using namespace std;
 
 class Solution {

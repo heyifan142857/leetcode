@@ -1,7 +1,11 @@
 // 3600. Maximize Spanning Tree Stability with Upgrades
 // Created automatically
 // Created at 2026-03-12 10:59:42
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <numeric>
+#include <utility>
+#include <vector>
 using namespace std;
 
 class Solution {

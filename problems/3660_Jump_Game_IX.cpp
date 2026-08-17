@@ -2,7 +2,10 @@
 // Created automatically
 // Created at 2026-05-07 10:05:58
 
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <climits>
+#include <vector>
 using namespace std;
 
 #include <bits/stdc++.h>

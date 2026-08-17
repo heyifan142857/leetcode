@@ -1,6 +1,7 @@
 //
 // Created by azote on 1/17/26.
 //
+#include <algorithm>
 #include <vector>
 using namespace std;
 

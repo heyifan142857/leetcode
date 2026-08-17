@@ -3,6 +3,7 @@
 // Created at 2026-04-05 17:30:20
 
 #include <bits/stdc++.h>
+#include <string>
 using namespace std;
 
 class Solution {

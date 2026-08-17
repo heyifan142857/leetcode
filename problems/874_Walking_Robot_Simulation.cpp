@@ -2,7 +2,10 @@
 // Created automatically
 // Created at 2026-04-06 14:13:04
 
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 
 class Solution {

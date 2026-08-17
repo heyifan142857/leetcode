@@ -2,7 +2,11 @@
 // Created automatically
 // Created at 2026-04-16 10:18:52
 
+#include <algorithm>
 #include <bits/stdc++.h>
+#include <cstdlib>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Solution {

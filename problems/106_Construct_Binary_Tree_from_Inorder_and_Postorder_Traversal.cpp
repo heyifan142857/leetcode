@@ -3,6 +3,9 @@
 // Created at 2026-03-19 11:50:31
 
 #include <bits/stdc++.h>
+#include <functional>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 struct TreeNode {

@@ -3,6 +3,10 @@
 // Created at 2026-03-13 10:22:54
 
 #include <bits/stdc++.h>
+#include <functional>
+#include <queue>
+#include <tuple>
+#include <vector>
 using namespace std;
 
 // 作者：灵茶山艾府

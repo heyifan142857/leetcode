@@ -1,4 +1,6 @@
 #include <bitset>
+#include <cstddef>
+#include <iterator>
 #include <list>
 #include <queue>
 #include <vector>

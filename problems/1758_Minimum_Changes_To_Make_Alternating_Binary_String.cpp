@@ -2,6 +2,7 @@
 // Created automatically
 // Created at 2026-03-05 10:31:42
 
+#include <algorithm>
 #include <string>
 using namespace std;
 

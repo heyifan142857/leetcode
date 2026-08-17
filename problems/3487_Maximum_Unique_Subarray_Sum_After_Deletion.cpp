@@ -2,6 +2,7 @@
 // Created by user on 2025/7/25.
 //
 
+#include <algorithm>
 #include <climits>
 #include <vector>
 using namespace std;

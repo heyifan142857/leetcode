@@ -1,6 +1,7 @@
 // 哈夫曼树反复合并权值最小的两棵树，从而得到带权路径长度最小的二叉树。
 // 本示例使用哈夫曼树生成前缀编码，并演示字符串的编码与解码。
 
+#include <cstddef>
 #include <iostream>
 #include <memory>
 #include <queue>

@@ -5,6 +5,7 @@
 #include "Graph.h"
 
 #include <algorithm>
+#include <cstddef>
 #include <iostream>
 #include <stdexcept>
 #include <vector>
