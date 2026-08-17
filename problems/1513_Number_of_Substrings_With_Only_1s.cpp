@@ -1,8 +1,8 @@
 //
 // Created by azote on 11/17/25.
 //
-#include <string>
 #include <algorithm>
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -11,7 +11,7 @@ public:
     int numSub(string s) {
         vector<long long> lengths;
         int cur = 0;
-        for (const auto c: s) {
+        for (const auto c : s) {
             if (c == '0') {
                 if (cur) {
                     lengths.push_back(cur);
@@ -41,7 +41,7 @@ public:
 
         long long sum = 0;
 
-        for (const auto length: lengths) {
+        for (const auto length : lengths) {
             sum += dp[length];
         }
 

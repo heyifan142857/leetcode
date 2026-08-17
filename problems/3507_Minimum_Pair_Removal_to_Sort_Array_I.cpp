@@ -5,7 +5,8 @@
 using namespace std;
 
 class Solution {
-    static bool isNonDecreasing(const vector<int> &nums, const int start, const int end) {
+    static bool isNonDecreasing(const vector<int> &nums, const int start,
+                                const int end) {
         for (int i = start; i < end; ++i) {
             if (nums[i] > nums[i + 1]) {
                 return false;

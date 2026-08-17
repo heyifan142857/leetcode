@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    long long maxTotalValue(vector<int>& nums, int k) {
+    long long maxTotalValue(vector<int> &nums, int k) {
         vector<int> velnorquis = nums;
 
         int n = nums.size();
@@ -44,9 +44,7 @@ public:
             int left;
             int right;
 
-            bool operator<(const Node& other) const {
-                return val < other.val;
-            }
+            bool operator<(const Node &other) const { return val < other.val; }
         };
 
         priority_queue<Node> pq;

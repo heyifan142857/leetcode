@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int minMoves(vector<int>& nums, int limit) {
+    int minMoves(vector<int> &nums, int limit) {
         int n = nums.size();
 
         // 差分数组

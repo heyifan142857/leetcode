@@ -8,7 +8,8 @@ class MovieRentingSystem {
     struct MovieEntry {
         int price, shop;
         bool operator<(const MovieEntry &o) const {
-            if (price != o.price) return price < o.price;
+            if (price != o.price)
+                return price < o.price;
             return shop < o.shop;
         }
     };
@@ -16,8 +17,10 @@ class MovieRentingSystem {
     struct RentedEntry {
         int price, shop, movie;
         bool operator<(const RentedEntry &o) const {
-            if (price != o.price) return price < o.price;
-            if (shop != o.shop) return shop < o.shop;
+            if (price != o.price)
+                return price < o.price;
+            if (shop != o.shop)
+                return shop < o.shop;
             return movie < o.movie;
         }
     };
@@ -31,11 +34,11 @@ class MovieRentingSystem {
     int n;
 
     long long key(int shop, int movie) {
-        return ( (long long)shop << 32 ) | (unsigned int)movie;
+        return ((long long)shop << 32) | (unsigned int)movie;
     }
 
 public:
-    MovieRentingSystem(int n, vector<vector<int>>& entries): n(n) {
+    MovieRentingSystem(int n, vector<vector<int>> &entries) : n(n) {
         for (auto &e : entries) {
             int shop = e[0], movie = e[1], price = e[2];
             available[movie].insert({price, shop});
@@ -46,11 +49,13 @@ public:
     vector<int> search(int movie) {
         vector<int> res;
         auto it = available.find(movie);
-        if (it == available.end()) return res;
+        if (it == available.end())
+            return res;
         int cnt = 0;
         for (auto &entry : it->second) {
             res.push_back(entry.shop);
-            if (++cnt == 5) break;
+            if (++cnt == 5)
+                break;
         }
         return res;
     }
@@ -72,12 +77,12 @@ public:
         int cnt = 0;
         for (auto &entry : rented) {
             res.push_back({entry.shop, entry.movie});
-            if (++cnt == 5) break;
+            if (++cnt == 5)
+                break;
         }
         return res;
     }
 };
-
 
 /**
  * Your MovieRentingSystem object will be instantiated and called as such:

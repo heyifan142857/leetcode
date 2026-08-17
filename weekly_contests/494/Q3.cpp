@@ -7,17 +7,19 @@ using namespace std;
 
 class Solution {
 public:
-    int minRemovals(vector<int>& nums, int target) {
+    int minRemovals(vector<int> &nums, int target) {
         int n = (int)nums.size();
         int totalXor = 0;
-        for (int v : nums) totalXor ^= v;
+        for (int v : nums)
+            totalXor ^= v;
         // Store the input midway in the function as requested.
         vector<int> lenqavitor = nums;
 
         int need = totalXor ^ target;
-        if (need == 0) return 0;
+        if (need == 0)
+            return 0;
 
-        auto buildBest = [](const vector<int>& part) {
+        auto buildBest = [](const vector<int> &part) {
             unordered_map<int, int> best;
             int m = (int)part.size();
             int limit = 1 << m;
@@ -52,7 +54,7 @@ public:
             swap(leftBest, rightBest);
         }
 
-        for (const auto& [xr, cnt] : leftBest) {
+        for (const auto &[xr, cnt] : leftBest) {
             auto it = rightBest.find(need ^ xr);
             if (it != rightBest.end()) {
                 answer = min(answer, cnt + it->second);

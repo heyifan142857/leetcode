@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int numOfUnplacedFruits(vector<int>& fruits, vector<int>& baskets) {
+    int numOfUnplacedFruits(vector<int> &fruits, vector<int> &baskets) {
         int n = fruits.size();
         int sum = 0;
         vector<bool> fruit_placed(n, false);
@@ -15,16 +15,16 @@ public:
         for (int i = 0; i < n; ++i) {
             bool placed = false;
             for (int j = 0; j < n; ++j) {
-                if(fruit_placed[j]){
+                if (fruit_placed[j]) {
                     continue;
                 }
-                if(baskets[j]>=fruits[i]){
+                if (baskets[j] >= fruits[i]) {
                     fruit_placed[j] = true;
                     placed = true;
                     break;
                 }
             }
-            if(!placed){
+            if (!placed) {
                 sum++;
             }
         }

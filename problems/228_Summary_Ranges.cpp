@@ -7,9 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    vector<string> summaryRanges(vector<int>& nums) {
+    vector<string> summaryRanges(vector<int> &nums) {
         vector<string> result;
-        if (nums.empty()) return result;
+        if (nums.empty())
+            return result;
 
         int start = nums[0], end = nums[0];
         for (int i = 1; i <= nums.size(); ++i) {

@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int minMirrorPairDistance(vector<int>& nums) {
+    int minMirrorPairDistance(vector<int> &nums) {
         auto revInt = [&](int x) {
             int r = 0;
             while (x > 0) {

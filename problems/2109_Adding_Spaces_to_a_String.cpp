@@ -8,11 +8,11 @@ using namespace std;
 
 class Solution {
 public:
-    string addSpaces(string s, vector<int>& spaces) {
+    string addSpaces(string s, vector<int> &spaces) {
         string ans = "";
         auto it = spaces.begin();
         for (int i = 0; i < s.length(); ++i) {
-            if(it != spaces.end() && *it == i){
+            if (it != spaces.end() && *it == i) {
                 ans += ' ';
                 it++;
             }

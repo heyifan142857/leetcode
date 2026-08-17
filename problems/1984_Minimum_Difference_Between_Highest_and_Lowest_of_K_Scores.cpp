@@ -1,9 +1,9 @@
 //
 // Created by azote on 1/25/26.
 //
-#include <vector>
 #include <algorithm>
 #include <climits>
+#include <vector>
 using namespace std;
 
 class Solution {

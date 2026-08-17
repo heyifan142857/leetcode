@@ -36,7 +36,7 @@ class Solution {
     }
 
 public:
-    long long minOperations(vector<vector<int>>& queries) {
+    long long minOperations(vector<vector<int>> &queries) {
         long long ans = 0;
         for (auto &q : queries) {
             ans += makeZeroCount(q[0], q[1]);
@@ -44,4 +44,3 @@ public:
         return ans;
     }
 };
-

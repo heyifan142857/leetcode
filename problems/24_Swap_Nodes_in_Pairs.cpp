@@ -11,20 +11,20 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* swapPairs(ListNode* head) {
-        ListNode* p = head;
-        ListNode* tail = nullptr;
+    ListNode *swapPairs(ListNode *head) {
+        ListNode *p = head;
+        ListNode *tail = nullptr;
 
-        while (p != nullptr && p->next != nullptr){
-            if(tail == nullptr){
-                ListNode* temp = p->next;
+        while (p != nullptr && p->next != nullptr) {
+            if (tail == nullptr) {
+                ListNode *temp = p->next;
                 head->next = temp->next;
                 temp->next = head;
                 head = temp;
                 tail = head->next;
                 p = head->next->next;
-            }else{
-                ListNode* temp = p->next;
+            } else {
+                ListNode *temp = p->next;
                 p->next = p->next->next;
                 temp->next = p;
                 tail->next = temp;

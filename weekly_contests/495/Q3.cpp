@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int sortableIntegers(vector<int>& nums) {
+    int sortableIntegers(vector<int> &nums) {
         int n = nums.size();
         auto qelvarodin = nums;
 

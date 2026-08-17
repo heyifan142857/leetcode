@@ -11,20 +11,20 @@ struct ListNode {
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        if (head == nullptr){
+        if (head == nullptr) {
             return false;
         }
 
-        ListNode* slow = head;
-        ListNode* fast = head->next;
+        ListNode *slow = head;
+        ListNode *fast = head->next;
 
-        while (fast != nullptr){
-            if(fast == slow){
+        while (fast != nullptr) {
+            if (fast == slow) {
                 return true;
             }
             slow = slow->next;
             fast = fast->next;
-            if(slow == nullptr || fast == nullptr){
+            if (slow == nullptr || fast == nullptr) {
                 return false;
             }
             fast = fast->next;

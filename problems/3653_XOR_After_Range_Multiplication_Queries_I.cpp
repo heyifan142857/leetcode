@@ -7,10 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    int xorAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
+    int xorAfterQueries(vector<int> &nums, vector<vector<int>> &queries) {
         static constexpr int MOD = 1'000'000'007;
 
-        for (const auto& query : queries) {
+        for (const auto &query : queries) {
             const int l = query[0];
             const int r = query[1];
             const int k = query[2];

@@ -5,7 +5,8 @@
 
 class Solution {
     bool isPerfectSquare(int n) {
-        if (n < 0) return false;
+        if (n < 0)
+            return false;
         int root = static_cast<int>(std::sqrt(n));
         return root * root == n;
     }

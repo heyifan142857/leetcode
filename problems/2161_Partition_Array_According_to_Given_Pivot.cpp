@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> pivotArray(vector<int>& nums, int pivot) {
+    vector<int> pivotArray(vector<int> &nums, int pivot) {
         vector<int> result;
         for (int num : nums) {
             if (num < pivot) {

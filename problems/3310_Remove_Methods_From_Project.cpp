@@ -7,10 +7,11 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> remainingMethods(int n, int k, vector<vector<int>>& invocations) {
+    vector<int> remainingMethods(int n, int k,
+                                 vector<vector<int>> &invocations) {
         vector<vector<int>> graph(n);
-      
-        for (auto& inv : invocations) {
+
+        for (auto &inv : invocations) {
             graph[inv[0]].push_back(inv[1]);
         }
         unordered_set<int> visited;
@@ -20,7 +21,7 @@ public:
         for (int i = 0; i < n; ++i) {
             if (visited.find(i) == visited.end()) {
                 result.push_back(i);
-      
+
                 for (int next : graph[i]) {
                     if (visited.find(next) != visited.end()) {
                         can_remove = false;
@@ -37,7 +38,8 @@ public:
         return result;
     }
 
-    void dfs(int node, vector<vector<int>>& graph, unordered_set<int>& visited) {
+    void dfs(int node, vector<vector<int>> &graph,
+             unordered_set<int> &visited) {
         if (visited.find(node) != visited.end()) {
             return;
         }

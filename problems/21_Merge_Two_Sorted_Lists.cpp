@@ -11,48 +11,48 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode* head = nullptr;
-        ListNode* tail = nullptr;
+    ListNode *mergeTwoLists(ListNode *list1, ListNode *list2) {
+        ListNode *head = nullptr;
+        ListNode *tail = nullptr;
 
-        ListNode* p1 = list1;
-        ListNode* p2 = list2;
+        ListNode *p1 = list1;
+        ListNode *p2 = list2;
 
-        while (p1 != nullptr || p2 != nullptr){
-            if(p1 != nullptr && p2 != nullptr){
-                if(p1->val < p2->val){
-                    if(tail == nullptr){
+        while (p1 != nullptr || p2 != nullptr) {
+            if (p1 != nullptr && p2 != nullptr) {
+                if (p1->val < p2->val) {
+                    if (tail == nullptr) {
                         head = p1;
                         tail = p1;
-                    }else{
+                    } else {
                         tail->next = new ListNode(p1->val);
                         tail = tail->next;
                     }
                     p1 = p1->next;
-                }else{
-                    if(tail == nullptr){
+                } else {
+                    if (tail == nullptr) {
                         head = p2;
                         tail = p2;
-                    }else{
+                    } else {
                         tail->next = new ListNode(p2->val);
                         tail = tail->next;
                     }
                     p2 = p2->next;
                 }
-            }else if(p1 != nullptr){
-                if(tail == nullptr){
+            } else if (p1 != nullptr) {
+                if (tail == nullptr) {
                     head = p1;
                     tail = p1;
-                }else{
+                } else {
                     tail->next = new ListNode(p1->val);
                     tail = tail->next;
                 }
                 p1 = p1->next;
-            }else{
-                if(tail == nullptr){
+            } else {
+                if (tail == nullptr) {
                     head = p2;
                     tail = p2;
-                }else{
+                } else {
                     tail->next = new ListNode(p2->val);
                     tail = tail->next;
                 }

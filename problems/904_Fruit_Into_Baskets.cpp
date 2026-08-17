@@ -2,13 +2,13 @@
 // Created by user on 2025/8/4.
 //
 
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    int totalFruit(vector<int>& fruits) {
+    int totalFruit(vector<int> &fruits) {
         unordered_map<int, int> count; // 水果种类和数量
         int left = 0, maxLen = 0;
 

@@ -17,13 +17,13 @@ public:
                 continue;
             } else if (token == "..") {
                 if (!stack.empty()) {
-                    stack.pop_back();   
+                    stack.pop_back();
                 }
             } else {
                 stack.push_back(token);
             }
         }
-        for (const auto& dir : stack) {
+        for (const auto &dir : stack) {
             result += "/" + dir;
         }
         return result.empty() ? "/" : result;

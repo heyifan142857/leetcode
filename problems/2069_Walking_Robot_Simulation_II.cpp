@@ -17,7 +17,7 @@ public:
     Robot(int width, int height) : width_(width), height_(height) {
         perimeter_ = 2 * (width_ + height_) - 4;
     }
-    
+
     void step(int num) {
         if (num == 0) {
             return;
@@ -25,7 +25,7 @@ public:
         dist_ = (dist_ + num) % perimeter_;
         moved_ = true;
     }
-    
+
     vector<int> getPos() {
         if (dist_ < width_) {
             return {dist_, 0};
@@ -44,7 +44,7 @@ public:
         d -= (width_ - 1);
         return {0, height_ - 1 - d};
     }
-    
+
     string getDir() {
         if (dist_ == 0) {
             return moved_ ? "South" : "East";

@@ -14,7 +14,8 @@ public:
         vis.insert(s);
 
         while (!q.empty()) {
-            string cur = q.front(); q.pop();
+            string cur = q.front();
+            q.pop();
             ans = min(ans, cur);
 
             // 操作1：加a到奇数位
@@ -28,7 +29,8 @@ public:
             }
 
             // 操作2：右移b位
-            string rot = cur.substr(cur.size() - b) + cur.substr(0, cur.size() - b);
+            string rot =
+                cur.substr(cur.size() - b) + cur.substr(0, cur.size() - b);
             if (!vis.count(rot)) {
                 vis.insert(rot);
                 q.push(rot);

@@ -34,7 +34,8 @@ public:
         int rootX = find(x);
         int rootY = find(y);
 
-        if (rootX == rootY) return; // 已经在同一集合中
+        if (rootX == rootY)
+            return; // 已经在同一集合中
 
         // 按秩合并：将秩较小的树合并到秩较大的树
         if (rank[rootX] < rank[rootY]) {
@@ -49,14 +50,10 @@ public:
     }
 
     // 判断元素x和y是否属于同一集合
-    bool connected(int x, int y) {
-        return find(x) == find(y);
-    }
+    bool connected(int x, int y) { return find(x) == find(y); }
 
     // 返回连通分量的数量
-    int getCount() {
-        return count;
-    }
+    int getCount() { return count; }
 };
 
 int main() {
@@ -81,7 +78,8 @@ int main() {
     // 合并更多集合
     uf.unionSet(6, 7);
 
-    cout << "合并后1和3是否连通: " << (uf.connected(1, 3) ? "是" : "否") << endl;
+    cout << "合并后1和3是否连通: " << (uf.connected(1, 3) ? "是" : "否")
+         << endl;
     cout << "合并后连通分量数量: " << uf.getCount() << endl;
 
     return 0;

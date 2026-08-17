@@ -7,20 +7,20 @@ using namespace std;
 
 class Solution {
     vector<vector<int>> ans;
-    void _permute(const vector<int>& nums, vector<int>& path){
-        for (auto num: nums) {
+    void _permute(const vector<int> &nums, vector<int> &path) {
+        for (auto num : nums) {
             bool exist = false;
-            for (auto n: path) {
-                if(num == n){
+            for (auto n : path) {
+                if (num == n) {
                     exist = true;
                     break;
                 }
             }
-            if(exist){
+            if (exist) {
                 continue;
-            }else{
+            } else {
                 path.push_back(num);
-                if(nums.size() == path.size()){
+                if (nums.size() == path.size()) {
                     ans.push_back(path);
                 }
                 _permute(nums, path);
@@ -28,8 +28,9 @@ class Solution {
             path.pop_back();
         }
     };
+
 public:
-    vector<vector<int>> permute(vector<int>& nums) {
+    vector<vector<int>> permute(vector<int> &nums) {
         vector<int> path;
         _permute(nums, path);
 

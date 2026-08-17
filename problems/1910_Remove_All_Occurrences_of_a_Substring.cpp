@@ -14,7 +14,8 @@ public:
         for (char ch : s) {
             result.push_back(ch);
             if (result.size() >= partLength &&
-                result.compare(result.size() - partLength, partLength, part) == 0) {
+                result.compare(result.size() - partLength, partLength, part) ==
+                    0) {
                 result.resize(result.size() - partLength);
             }
         }

@@ -15,11 +15,8 @@ class Solution {
 
     // primeCount[d] stores the exponents of 2, 3, 5 and 7 in digit d.
     static constexpr int primeCount[10][4] = {
-        {0, 0, 0, 0}, {0, 0, 0, 0}, {1, 0, 0, 0},
-        {0, 1, 0, 0}, {2, 0, 0, 0}, {0, 0, 1, 0},
-        {1, 1, 0, 0}, {0, 0, 0, 1}, {3, 0, 0, 0},
-        {0, 2, 0, 0}
-    };
+        {0, 0, 0, 0}, {0, 0, 0, 0}, {1, 0, 0, 0}, {0, 1, 0, 0}, {2, 0, 0, 0},
+        {0, 0, 1, 0}, {1, 1, 0, 0}, {0, 0, 0, 1}, {3, 0, 0, 0}, {0, 2, 0, 0}};
 
     vector<vector<int>> minDigits23;
 
@@ -31,9 +28,9 @@ class Solution {
         return need;
     }
 
-    bool canFill(const Need& need, int positions) const {
-        return need.five + need.seven
-             + minDigits23[need.two][need.three] <= positions;
+    bool canFill(const Need &need, int positions) const {
+        return need.five + need.seven + minDigits23[need.two][need.three] <=
+               positions;
     }
 
     string smallestSuffix(Need need, int length) const {
@@ -59,9 +56,8 @@ public:
         Need target;
         long long remainingT = t;
         const int primes[4] = {2, 3, 5, 7};
-        int* exponents[4] = {
-            &target.two, &target.three, &target.five, &target.seven
-        };
+        int *exponents[4] = {&target.two, &target.three, &target.five,
+                             &target.seven};
 
         for (int i = 0; i < 4; ++i) {
             while (remainingT % primes[i] == 0) {
@@ -79,11 +75,10 @@ public:
                            vector<int>(target.three + 1, INT_MAX));
         for (int two = 0; two <= target.two; ++two) {
             for (int three = 0; three <= target.three; ++three) {
-                for (int sixCount = 0;
-                     sixCount <= min(two, three); ++sixCount) {
-                    int count = sixCount
-                              + (two - sixCount + 2) / 3
-                              + (three - sixCount + 1) / 2;
+                for (int sixCount = 0; sixCount <= min(two, three);
+                     ++sixCount) {
+                    int count = sixCount + (two - sixCount + 2) / 3 +
+                                (three - sixCount + 1) / 2;
                     minDigits23[two][three] =
                         min(minDigits23[two][three], count);
                 }
@@ -128,8 +123,8 @@ public:
 
         // Every number with more digits is greater than num.  Extra places
         // can always be padded with digit 1.
-        int requiredDigits = target.five + target.seven
-                           + minDigits23[target.two][target.three];
+        int requiredDigits =
+            target.five + target.seven + minDigits23[target.two][target.three];
         int answerLength = max(n + 1, requiredDigits);
         return smallestSuffix(target, answerLength);
     }

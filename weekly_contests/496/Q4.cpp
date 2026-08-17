@@ -7,11 +7,14 @@ using namespace std;
 
 class Solution {
 public:
-    int minOperations(vector<int>& nums, int k) {
+    int minOperations(vector<int> &nums, int k) {
         const int n = static_cast<int>(nums.size());
-        if (k == 0) return 0;
-        if (n == 1) return -1;
-        if (k > n / 2) return -1;
+        if (k == 0)
+            return 0;
+        if (n == 1)
+            return -1;
+        if (k > n / 2)
+            return -1;
 
         vector<long long> cost(n, 0);
         for (int i = 0; i < n; ++i) {
@@ -24,11 +27,14 @@ public:
         const long long INF = (1LL << 62);
 
         auto solvePath = [&](int left, int right, int need) -> long long {
-            if (need == 0) return 0;
-            if (left > right) return INF;
+            if (need == 0)
+                return 0;
+            if (left > right)
+                return INF;
 
             int len = right - left + 1;
-            if (need > (len + 1) / 2) return INF;
+            if (need > (len + 1) / 2)
+                return INF;
 
             vector<long long> skip(need + 1, INF), take(need + 1, INF);
             skip[0] = 0;

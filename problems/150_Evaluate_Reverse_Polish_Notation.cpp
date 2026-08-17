@@ -7,12 +7,14 @@ using namespace std;
 
 class Solution {
 public:
-    int evalRPN(vector<string>& tokens) {
+    int evalRPN(vector<string> &tokens) {
         stack<int> s;
-        for (const auto& token : tokens) {
+        for (const auto &token : tokens) {
             if (token == "+" || token == "-" || token == "*" || token == "/") {
-                int b = s.top(); s.pop();
-                int a = s.top(); s.pop();
+                int b = s.top();
+                s.pop();
+                int a = s.top();
+                s.pop();
                 if (token == "+") {
                     s.push(a + b);
                 } else if (token == "-") {
@@ -26,6 +28,6 @@ public:
                 s.push(stoi(token));
             }
         }
-        return s.top();        
+        return s.top();
     }
 };

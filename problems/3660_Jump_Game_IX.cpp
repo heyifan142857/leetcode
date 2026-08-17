@@ -10,7 +10,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> maxValue(vector<int>& nums) {
+    vector<int> maxValue(vector<int> &nums) {
         int n = nums.size();
 
         vector<int> grexolanta = nums;

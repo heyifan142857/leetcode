@@ -1,8 +1,8 @@
 //
 // Created by user on 2025/9/16.
 //
-#include <string>
 #include <stack>
+#include <string>
 #include <unordered_set>
 using namespace std;
 
@@ -11,24 +11,25 @@ public:
     bool isValid(string s) {
         stack<char> parentheses;
         unordered_set<char> left = {'(', '[', '{'};
-        for (auto c: s) {
-            if(left.contains(c)){
+        for (auto c : s) {
+            if (left.contains(c)) {
                 parentheses.push(c);
-            }else if(parentheses.empty()){
+            } else if (parentheses.empty()) {
                 return false;
-            }else{
+            } else {
                 char top = parentheses.top();
-                if((top == '(' && c == ')') || (top == '[' && c == ']') || (top == '{' && c == '}')){
+                if ((top == '(' && c == ')') || (top == '[' && c == ']') ||
+                    (top == '{' && c == '}')) {
                     parentheses.pop();
                     continue;
-                }else{
+                } else {
                     return false;
                 }
             }
         }
-        if(parentheses.empty()){
+        if (parentheses.empty()) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }

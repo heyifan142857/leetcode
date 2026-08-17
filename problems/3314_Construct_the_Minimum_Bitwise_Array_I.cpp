@@ -9,7 +9,7 @@ public:
     vector<int> minBitwiseArray(vector<int> &nums) {
         const int n = nums.size();
         vector<int> ans;
-        for (const auto num: nums) {
+        for (const auto num : nums) {
             const int start = num >> 1;
             const int end = num;
             bool flag = false;

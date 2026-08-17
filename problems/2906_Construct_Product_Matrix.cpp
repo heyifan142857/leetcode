@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> constructProductMatrix(vector<vector<int>>& grid) {
+    vector<vector<int>> constructProductMatrix(vector<vector<int>> &grid) {
         int n = grid.size(), m = grid[0].size();
         const int MOD = 12345;
         int total = n * m;
@@ -25,7 +25,8 @@ public:
         }
 
         for (int idx = 0; idx < total; idx++) {
-            productMatrix[idx / m][idx % m] = (1LL * prefix[idx] * suffix[idx]) % MOD;
+            productMatrix[idx / m][idx % m] =
+                (1LL * prefix[idx] * suffix[idx]) % MOD;
         }
 
         return productMatrix;

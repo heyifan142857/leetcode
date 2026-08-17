@@ -8,13 +8,17 @@ using namespace std;
 class Solution {
 public:
     long long getPos(int side, int x, int y) {
-        if (x == 0) return y;
-        if (y == side) return 1LL * side + x;
-        if (x == side) return 3LL * side - y;
+        if (x == 0)
+            return y;
+        if (y == side)
+            return 1LL * side + x;
+        if (x == side)
+            return 3LL * side - y;
         return 4LL * side - x;
     }
 
-    bool canPick(const vector<long long>& pos, int k, long long dist, long long perimeter) {
+    bool canPick(const vector<long long> &pos, int k, long long dist,
+                 long long perimeter) {
         int n = pos.size();
         vector<long long> ext(2 * n);
         for (int i = 0; i < n; ++i) {
@@ -27,7 +31,9 @@ public:
             bool ok = true;
             for (int taken = 1; taken < k; ++taken) {
                 long long need = ext[cur] + dist;
-                cur = lower_bound(ext.begin() + cur + 1, ext.begin() + start + n, need) - ext.begin();
+                cur = lower_bound(ext.begin() + cur + 1,
+                                  ext.begin() + start + n, need) -
+                      ext.begin();
                 if (cur >= start + n) {
                     ok = false;
                     break;
@@ -40,10 +46,10 @@ public:
         return false;
     }
 
-    int maxDistance(int side, vector<vector<int>>& points, int k) {
+    int maxDistance(int side, vector<vector<int>> &points, int k) {
         vector<long long> pos;
         pos.reserve(points.size());
-        for (const auto& p : points) {
+        for (const auto &p : points) {
             pos.push_back(getPos(side, p[0], p[1]));
         }
         sort(pos.begin(), pos.end());
@@ -59,6 +65,6 @@ public:
                 right = mid - 1;
             }
         }
-        return (int) left;
+        return (int)left;
     }
 };

@@ -7,7 +7,8 @@ using namespace std;
 
 class Solution {
 public:
-    int countGoodSubseq(vector<int>& nums, int p, vector<vector<int>>& queries) {
+    int countGoodSubseq(vector<int> &nums, int p,
+                        vector<vector<int>> &queries) {
         int n = (int)nums.size();
         if (n == 1) {
             return 0;
@@ -19,7 +20,7 @@ public:
                 maxValue = max(maxValue, x / p);
             }
         }
-        for (const auto& query : queries) {
+        for (const auto &query : queries) {
             int value = query[1];
             if (value % p == 0) {
                 maxValue = max(maxValue, value / p);
@@ -43,7 +44,7 @@ public:
         unordered_map<int, vector<int>> factorCache;
         factorCache.reserve(nums.size() + queries.size() + 16);
 
-        auto getFactors = [&](int value) -> const vector<int>& {
+        auto getFactors = [&](int value) -> const vector<int> & {
             auto it = factorCache.find(value);
             if (it != factorCache.end()) {
                 return it->second;
@@ -66,7 +67,8 @@ public:
                 factors.push_back(x);
             }
 
-            auto [insertedIt, _] = factorCache.emplace(value, std::move(factors));
+            auto [insertedIt, _] =
+                factorCache.emplace(value, std::move(factors));
             return insertedIt->second;
         };
 
@@ -113,7 +115,7 @@ public:
             ++countDivisible;
             currentFactors[i] = getFactors(nums[i] / p);
             for (int prime : currentFactors[i]) {
-                auto& state = info[prime];
+                auto &state = info[prime];
                 ++state.cnt;
                 state.xorDiv ^= i;
             }
@@ -137,7 +139,7 @@ public:
         };
 
         int fullCoverPrimes = 0;
-        for (auto& [prime, state] : info) {
+        for (auto &[prime, state] : info) {
             if (state.cnt == n) {
                 ++fullCoverPrimes;
             } else if (state.cnt == n - 1) {
@@ -152,7 +154,7 @@ public:
             }
             --countDivisible;
             for (int prime : currentFactors[index]) {
-                auto& state = info[prime];
+                auto &state = info[prime];
                 if (state.cnt == n) {
                     --fullCoverPrimes;
                 } else if (state.cnt == n - 1) {
@@ -181,7 +183,7 @@ public:
             ++countDivisible;
             currentFactors[index] = getFactors(value / p);
             for (int prime : currentFactors[index]) {
-                auto& state = info[prime];
+                auto &state = info[prime];
                 if (state.cnt == n) {
                     --fullCoverPrimes;
                 } else if (state.cnt == n - 1) {
@@ -212,7 +214,7 @@ public:
         };
 
         int answer = 0;
-        for (const auto& query : queries) {
+        for (const auto &query : queries) {
             int index = query[0];
             int value = query[1];
 

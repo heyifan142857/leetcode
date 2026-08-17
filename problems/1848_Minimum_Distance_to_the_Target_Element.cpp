@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int getMinDistance(vector<int>& nums, int target, int start) {
+    int getMinDistance(vector<int> &nums, int target, int start) {
         int n = nums.size();
         if (start < 0 || start >= n) {
             return -1;

@@ -1,8 +1,8 @@
 //
 // Created by user on 2025/9/7.
 //
-#include <vector>
 #include <queue>
+#include <vector>
 using namespace std;
 
 struct TreeNode {
@@ -11,17 +11,18 @@ struct TreeNode {
     TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right)
+        : val(x), left(left), right(right) {}
 };
 
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
-        if(root == nullptr){
+    vector<vector<int>> levelOrder(TreeNode *root) {
+        if (root == nullptr) {
             return {};
         }
 
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
         q.push(root);
         q.push(nullptr);
 
@@ -29,14 +30,14 @@ public:
 
         vector<int> level;
 
-        while (!q.empty()){
-            TreeNode* cur = q.front();
+        while (!q.empty()) {
+            TreeNode *cur = q.front();
             q.pop();
 
-            if(cur == nullptr){
+            if (cur == nullptr) {
                 ans.push_back(level);
                 level.clear();
-                if(q.empty()){
+                if (q.empty()) {
                     break;
                 }
 
@@ -45,10 +46,10 @@ public:
             }
 
             level.push_back(cur->val);
-            if(cur->left != nullptr){
+            if (cur->left != nullptr) {
                 q.push(cur->left);
             }
-            if(cur->right != nullptr){
+            if (cur->right != nullptr) {
                 q.push(cur->right);
             }
         }

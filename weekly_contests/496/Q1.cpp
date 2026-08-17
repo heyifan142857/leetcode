@@ -10,12 +10,15 @@ public:
     int mirrorFrequency(string s) {
         vector<int> freq(36, 0);
         for (char ch : s) {
-            if (isdigit(ch)) ++freq[ch - '0'];
-            else ++freq[10 + ch - 'a'];
+            if (isdigit(ch))
+                ++freq[ch - '0'];
+            else
+                ++freq[10 + ch - 'a'];
         }
 
         auto mirrorIndex = [](int idx) -> int {
-            if (idx < 10) return 9 - idx;
+            if (idx < 10)
+                return 9 - idx;
             return 10 + (25 - (idx - 10));
         };
 

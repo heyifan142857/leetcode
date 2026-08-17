@@ -3,20 +3,21 @@
 //
 
 #include <string>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 // 作者：灵茶山艾府
 class Solution {
 public:
-    vector<int> findSubstring(string s, vector<string>& words) {
+    vector<int> findSubstring(string s, vector<string> &words) {
         int word_len = words[0].size(); // 一个单词的长度
-        int window_len = word_len * words.size(); // 所有单词的总长度，即窗口大小
+        int window_len =
+            word_len * words.size(); // 所有单词的总长度，即窗口大小
 
         // 目标：窗口中的单词出现次数必须与 target_cnt 完全一致
         unordered_map<string, int> target_cnt;
-        for (auto& w : words) {
+        for (auto &w : words) {
             target_cnt[w]++;
         }
 
@@ -26,7 +27,8 @@ public:
             unordered_map<string, int> cnt;
             int overload = 0; // 统计过多的单词个数（包括不在 words 中的单词）
             // 枚举窗口最后一个单词的右开端点
-            for (int right = start + word_len; right <= s.size(); right += word_len) {
+            for (int right = start + word_len; right <= s.size();
+                 right += word_len) {
                 // 1. in_word 进入窗口
                 string in_word = s.substr(right - word_len, word_len);
                 // 下面 cnt[in_word]++ 后，in_word 的出现次数过多
@@ -36,12 +38,13 @@ public:
                 cnt[in_word]++;
 
                 int left = right - window_len; // 窗口第一个单词的左端点
-                if (left < 0) { // 窗口大小不足 window_len
+                if (left < 0) {                // 窗口大小不足 window_len
                     continue;
                 }
 
                 // 2. 更新答案
-                // 如果没有超出 target_cnt 的单词，那么也不会有少于 target_cnt 的单词
+                // 如果没有超出 target_cnt 的单词，那么也不会有少于 target_cnt
+                // 的单词
                 if (overload == 0) {
                     ans.push_back(left);
                 }

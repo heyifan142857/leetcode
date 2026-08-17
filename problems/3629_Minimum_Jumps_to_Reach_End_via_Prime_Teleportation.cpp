@@ -7,19 +7,24 @@ using namespace std;
 
 class Solution {
 public:
-    int minJumps(vector<int>& nums) {
+    int minJumps(vector<int> &nums) {
         int n = nums.size();
-        if (n == 1) return 0;
+        if (n == 1)
+            return 0;
 
         int maxNum = *max_element(nums.begin(), nums.end());
         vector<int> spf(maxNum + 1);
-        for (int i = 0; i <= maxNum; ++i) spf[i] = i;
-        if (maxNum >= 1) spf[1] = 1;
+        for (int i = 0; i <= maxNum; ++i)
+            spf[i] = i;
+        if (maxNum >= 1)
+            spf[1] = 1;
 
         for (long long i = 2; i * i <= maxNum; ++i) {
-            if (spf[i] != i) continue;
+            if (spf[i] != i)
+                continue;
             for (long long j = i * i; j <= maxNum; j += i) {
-                if (spf[j] == j) spf[j] = i;
+                if (spf[j] == j)
+                    spf[j] = i;
             }
         }
 
@@ -30,7 +35,8 @@ public:
             while (x > 1) {
                 int p = spf[x];
                 indicesByFactor[p].push_back(i);
-                while (x % p == 0) x /= p;
+                while (x % p == 0)
+                    x /= p;
             }
         }
 
@@ -41,7 +47,8 @@ public:
         q.push(0);
 
         auto visit = [&](int next, int cur) {
-            if (next < 0 || next >= n || dist[next] != -1) return;
+            if (next < 0 || next >= n || dist[next] != -1)
+                return;
             dist[next] = dist[cur] + 1;
             q.push(next);
         };
@@ -49,7 +56,8 @@ public:
         while (!q.empty()) {
             int i = q.front();
             q.pop();
-            if (i == n - 1) return dist[i];
+            if (i == n - 1)
+                return dist[i];
 
             visit(i - 1, i);
             visit(i + 1, i);
@@ -59,7 +67,8 @@ public:
                 usedPrime[p] = true;
                 auto it = indicesByFactor.find(p);
                 if (it != indicesByFactor.end()) {
-                    for (int j : it->second) visit(j, i);
+                    for (int j : it->second)
+                        visit(j, i);
                     indicesByFactor.erase(it);
                 }
             }

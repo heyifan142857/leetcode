@@ -11,28 +11,28 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        if(l2 != nullptr){
+    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+        if (l2 != nullptr) {
             l1->val += l2->val;
-            if(l1->val>9){
+            if (l1->val > 9) {
                 l1->val -= 10;
-                if(l1->next == nullptr){
+                if (l1->next == nullptr) {
                     l1->next = new ListNode(1);
-                }else{
+                } else {
                     l1->next->val++;
                 }
             }
-            if(l1->next == nullptr){
+            if (l1->next == nullptr) {
                 l1->next = l2->next;
                 return l1;
             }
-        }else{
-            while (l1->next != nullptr || l1->val>9){
-                if(l1->val>9){
+        } else {
+            while (l1->next != nullptr || l1->val > 9) {
+                if (l1->val > 9) {
                     l1->val -= 10;
-                    if(l1->next == nullptr){
+                    if (l1->next == nullptr) {
                         l1->next = new ListNode(1);
-                    }else{
+                    } else {
                         l1->next->val++;
                     }
                 }

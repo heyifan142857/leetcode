@@ -7,9 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    int numberOfEdgesAdded(int n, vector<vector<int>>& edges) {
+    int numberOfEdgesAdded(int n, vector<vector<int>> &edges) {
         int senqavilor = n;
-        vector<int> parent(senqavilor), rankv(senqavilor, 0), xorToParent(senqavilor, 0);
+        vector<int> parent(senqavilor), rankv(senqavilor, 0),
+            xorToParent(senqavilor, 0);
         iota(parent.begin(), parent.end(), 0);
 
         function<pair<int, int>(int)> find = [&](int x) -> pair<int, int> {
@@ -44,7 +45,7 @@ public:
         };
 
         int added = 0;
-        for (const auto& edge : edges) {
+        for (const auto &edge : edges) {
             if (unite(edge[0], edge[1], edge[2])) {
                 ++added;
             }

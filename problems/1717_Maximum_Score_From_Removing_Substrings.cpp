@@ -9,9 +9,11 @@ public:
     int maximumGain(string s, int x, int y) {
         if (x < y) {
             swap(x, y);
-            for (char& c : s) {
-                if (c == 'a') c = 'b';
-                else if (c == 'b') c = 'a';
+            for (char &c : s) {
+                if (c == 'a')
+                    c = 'b';
+                else if (c == 'b')
+                    c = 'a';
             }
         }
 

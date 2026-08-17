@@ -12,11 +12,11 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* deleteDuplicates(ListNode* head) {
-        ListNode* temp = new ListNode(0, head);
-        ListNode* prev = temp;
+    ListNode *deleteDuplicates(ListNode *head) {
+        ListNode *temp = new ListNode(0, head);
+        ListNode *prev = temp;
         while (prev->next) {
-            ListNode* current = prev->next;
+            ListNode *current = prev->next;
             while (current->next && current->val == current->next->val) {
                 current = current->next;
             }

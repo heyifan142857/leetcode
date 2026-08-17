@@ -1,14 +1,15 @@
 //
 // Created by azote on 11/29/25.
 //
-#include <vector>
 #include <string>
+#include <vector>
 using namespace std;
 
 class Solution {
     int wordsLength(const vector<string> &words) {
         int sum = 0;
-        for (const auto &w: words) sum += w.size();
+        for (const auto &w : words)
+            sum += w.size();
         return sum;
     }
 
@@ -18,7 +19,7 @@ public:
         vector<string> cur;
         int totalLen = 0;
 
-        for (const string &w: words) {
+        for (const string &w : words) {
             if (!cur.empty()) {
                 if (totalLen + w.size() + cur.size() > maxWidth) {
                     int spaces = maxWidth - totalLen;
@@ -51,7 +52,8 @@ public:
 
         string last;
         for (int i = 0; i < cur.size(); ++i) {
-            if (i) last += " ";
+            if (i)
+                last += " ";
             last += cur[i];
         }
         last.append(maxWidth - last.size(), ' ');

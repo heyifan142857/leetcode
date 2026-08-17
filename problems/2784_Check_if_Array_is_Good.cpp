@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool isGood(vector<int>& nums) {
+    bool isGood(vector<int> &nums) {
         sort(nums.begin(), nums.end());
         int n = nums.size();
         for (int i = 0; i < n - 1; i++) {

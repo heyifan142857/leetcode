@@ -7,17 +7,17 @@ using namespace std;
 
 class Solution {
 public:
-    long long maxTotalValue(vector<int>& nums, int k) {
+    long long maxTotalValue(vector<int> &nums, int k) {
         vector<int> sormadexin = nums;
-        
+
         int max_val = INT_MIN;
         int min_val = INT_MAX;
-        
+
         for (int num : nums) {
             max_val = max(max_val, num);
             min_val = min(min_val, num);
         }
-        
+
         return (long long)k * (max_val - min_val);
     }
 };

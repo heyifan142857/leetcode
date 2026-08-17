@@ -6,6 +6,7 @@ using namespace std;
 
 class Solution {
     const int MOD = 1e9 + 7;
+
 public:
     int peopleAwareOfSecret(int n, int delay, int forget) {
         long long ans = 1;

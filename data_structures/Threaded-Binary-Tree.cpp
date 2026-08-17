@@ -6,40 +6,33 @@
 using namespace std;
 
 // 指针域的类型：Link 表示指向孩子，Thread 表示指向前驱或后继。
-enum class PointerTag {
-    Link,
-    Thread
-};
+enum class PointerTag { Link, Thread };
 
 struct ThreadedTreeNode {
     int value;
-    ThreadedTreeNode* left;
-    ThreadedTreeNode* right;
+    ThreadedTreeNode *left;
+    ThreadedTreeNode *right;
     PointerTag leftTag;
     PointerTag rightTag;
 
     explicit ThreadedTreeNode(int value)
-        : value(value),
-          left(nullptr),
-          right(nullptr),
-          leftTag(PointerTag::Link),
-          rightTag(PointerTag::Link) {}
+        : value(value), left(nullptr), right(nullptr),
+          leftTag(PointerTag::Link), rightTag(PointerTag::Link) {}
 };
 
 // 教材中的全局变量 pre：始终指向中序遍历时刚访问过的节点。
-ThreadedTreeNode* pre = nullptr;
+ThreadedTreeNode *pre = nullptr;
 
 class InorderThreadedBinaryTree {
 public:
-    explicit InorderThreadedBinaryTree(ThreadedTreeNode* root)
+    explicit InorderThreadedBinaryTree(ThreadedTreeNode *root)
         : root_(root), threaded_(false) {}
 
-    InorderThreadedBinaryTree(const InorderThreadedBinaryTree&) = delete;
-    InorderThreadedBinaryTree& operator=(const InorderThreadedBinaryTree&) = delete;
+    InorderThreadedBinaryTree(const InorderThreadedBinaryTree &) = delete;
+    InorderThreadedBinaryTree &
+    operator=(const InorderThreadedBinaryTree &) = delete;
 
-    ~InorderThreadedBinaryTree() {
-        destroy(root_);
-    }
+    ~InorderThreadedBinaryTree() { destroy(root_); }
 
     // 按中序遍历的顺序建立前驱、后继线索。
     void createInThread() {
@@ -61,7 +54,7 @@ public:
 
     // 利用线索完成中序遍历，不需要递归或辅助栈。
     void inorderTraversal() const {
-        ThreadedTreeNode* current = first(root_);
+        ThreadedTreeNode *current = first(root_);
 
         while (current != nullptr) {
             cout << current->value << ' ';
@@ -78,11 +71,11 @@ public:
     }
 
 private:
-    ThreadedTreeNode* root_;
+    ThreadedTreeNode *root_;
     bool threaded_;
 
     // 中序遍历二叉树，并在访问节点时完成线索化。
-    static void inThread(ThreadedTreeNode* node) {
+    static void inThread(ThreadedTreeNode *node) {
         if (node != nullptr) {
             inThread(node->left);
             visit(node);
@@ -91,7 +84,7 @@ private:
     }
 
     // 建立当前节点的前驱线索，以及前驱节点的后继线索。
-    static void visit(ThreadedTreeNode* node) {
+    static void visit(ThreadedTreeNode *node) {
         if (node->left == nullptr) {
             node->left = pre;
             node->leftTag = PointerTag::Thread;
@@ -105,7 +98,7 @@ private:
         pre = node;
     }
 
-    static ThreadedTreeNode* first(ThreadedTreeNode* node) {
+    static ThreadedTreeNode *first(ThreadedTreeNode *node) {
         if (node == nullptr) {
             return nullptr;
         }
@@ -117,7 +110,7 @@ private:
     }
 
     // 释放节点时只沿孩子指针递归，不能沿线索递归，否则会重复访问节点。
-    static void destroy(ThreadedTreeNode* node) {
+    static void destroy(ThreadedTreeNode *node) {
         if (node == nullptr) {
             return;
         }
@@ -144,7 +137,7 @@ int main() {
     //           7
     //
     // 中序遍历结果：4 2 7 5 1 3 6
-    auto* root = new ThreadedTreeNode(1);
+    auto *root = new ThreadedTreeNode(1);
     root->left = new ThreadedTreeNode(2);
     root->right = new ThreadedTreeNode(3);
     root->left->left = new ThreadedTreeNode(4);

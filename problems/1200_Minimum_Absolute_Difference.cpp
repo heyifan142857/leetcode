@@ -1,14 +1,14 @@
 //
 // Created by azote on 1/26/26.
 //
-#include <vector>
 #include <algorithm>
 #include <climits>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    vector<vector<int> > minimumAbsDifference(vector<int> &arr) {
+    vector<vector<int>> minimumAbsDifference(vector<int> &arr) {
         ranges::sort(arr);
 
         int minDiff = INT_MAX;
@@ -18,7 +18,7 @@ public:
             minDiff = min(minDiff, arr[i] - arr[i - 1]);
         }
 
-        vector<vector<int> > result;
+        vector<vector<int>> result;
 
         for (int i = 1; i < n; i++) {
             if (arr[i] - arr[i - 1] == minDiff) {

@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int stoneGameII(vector<int>& piles) {
+    int stoneGameII(vector<int> &piles) {
         const int n = piles.size();
         vector<int> suffix(n + 1);
         for (int i = n - 1; i >= 0; --i) {
@@ -20,15 +20,14 @@ public:
                 return suffix[i];
             }
 
-            int& result = memo[i][m];
+            int &result = memo[i][m];
             if (result != -1) {
                 return result;
             }
 
             result = 0;
             for (int x = 1; x <= 2 * m; ++x) {
-                result = max(result,
-                             suffix[i] - dfs(i + x, max(m, x)));
+                result = max(result, suffix[i] - dfs(i + x, max(m, x)));
             }
             return result;
         };

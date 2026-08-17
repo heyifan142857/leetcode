@@ -2,10 +2,10 @@
 // Created automatically
 // Created at 2026-08-13 19:37:00
 
-#include <vector>
-#include <string>
 #include <algorithm>
+#include <string>
 #include <utility>
+#include <vector>
 using namespace std;
 
 class Solution {
@@ -21,9 +21,11 @@ class Solution {
     vector<Node> tree;
     string current;
 
-    Node merge(const Node& left, const Node& right) {
-        if (left.len == 0) return right;
-        if (right.len == 0) return left;
+    Node merge(const Node &left, const Node &right) {
+        if (left.len == 0)
+            return right;
+        if (right.len == 0)
+            return left;
 
         Node result;
         result.len = left.len + right.len;
@@ -75,7 +77,8 @@ class Solution {
     }
 
 public:
-    vector<int> longestRepeating(string s, string queryCharacters, vector<int>& queryIndices) {
+    vector<int> longestRepeating(string s, string queryCharacters,
+                                 vector<int> &queryIndices) {
         current = move(s);
         int n = current.size();
         tree.assign(n * 4, Node{});

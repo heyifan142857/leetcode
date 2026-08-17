@@ -2,16 +2,16 @@
 // Created by user on 2025/9/10.
 //
 
-#include <vector>
-#include <unordered_set>
-#include <unordered_map>
 #include <climits>
+#include <unordered_map>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    int minimumTeachings(int n, vector<vector<int>>& languages,
-                         vector<vector<int>>& friendships) {
+    int minimumTeachings(int n, vector<vector<int>> &languages,
+                         vector<vector<int>> &friendships) {
         unordered_set<int> cncon;
         for (auto friendship : friendships) {
             unordered_map<int, int> mp;
@@ -33,7 +33,7 @@ public:
         int max_cnt = 0;
         vector<int> cnt(n + 1, 0);
         for (auto friendship : cncon) {
-            for (int lan : languages[friendship]){
+            for (int lan : languages[friendship]) {
                 cnt[lan]++;
                 max_cnt = max(max_cnt, cnt[lan]);
             }

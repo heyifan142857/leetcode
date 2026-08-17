@@ -9,7 +9,7 @@ class Solution {
 public:
     int minSubarray(vector<int> &nums, int p) {
         int x = 0;
-        for (auto num: nums) {
+        for (auto num : nums) {
             x = (x + num) % p;
         }
         if (x == 0) {

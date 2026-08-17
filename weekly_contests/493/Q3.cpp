@@ -7,9 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    int longestArithmetic(vector<int>& nums) {
+    int longestArithmetic(vector<int> &nums) {
         const int n = nums.size();
-        if (n <= 2) return n;
+        if (n <= 2)
+            return n;
 
         vector<int> left(n, 1), right(n, 1);
         left[1] = 2;
@@ -33,10 +34,12 @@ public:
 
             // If nums[i] is the modified element inside the chosen subarray,
             // the common difference is forced by its two neighbors.
-            if (i == 0 || i == n - 1) continue;
+            if (i == 0 || i == n - 1)
+                continue;
 
             long long gap = 1LL * nums[i + 1] - nums[i - 1];
-            if (gap % 2 != 0) continue;
+            if (gap % 2 != 0)
+                continue;
 
             long long d = gap / 2;
             int l = 1;

@@ -4,7 +4,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int longestSubsequence(vector<int> &nums) {
         const int n = static_cast<int>(nums.size());
         int xorSum = 0;

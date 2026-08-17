@@ -1,23 +1,22 @@
 //
 // Created by user on 2025/9/17.
 //
-#include <unordered_map>
 #include <set>
+#include <unordered_map>
 using namespace std;
 
 class NumberContainers {
     unordered_map<int, int> mp;
     unordered_map<int, set<int>> order;
-public:
-    NumberContainers() {
 
-    }
+public:
+    NumberContainers() {}
 
     void change(int index, int number) {
-        if(mp.contains(index)){
+        if (mp.contains(index)) {
             int former = mp[index];
             order[former].erase(index);
-            if(order[former].empty()){
+            if (order[former].empty()) {
                 order.erase(former);
             }
         }
@@ -26,9 +25,9 @@ public:
     }
 
     int find(int number) {
-        if(order.contains(number)){
+        if (order.contains(number)) {
             return *order[number].begin();
-        }else{
+        } else {
             return -1;
         }
     }

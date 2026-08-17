@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int maximumJumps(vector<int>& nums, int target) {
+    int maximumJumps(vector<int> &nums, int target) {
         int n = nums.size();
         vector<int> dp(n, -1);
         dp[0] = 0;

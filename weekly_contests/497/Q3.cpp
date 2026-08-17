@@ -30,7 +30,7 @@ public:
 
         int ans = 0;
 
-        for (auto& [_, v] : pos) {
+        for (auto &[_, v] : pos) {
             if (!v.empty()) {
                 ans = max(ans, v.back() - v.front());
             }
@@ -45,7 +45,7 @@ public:
                 if (it == pos.end()) {
                     continue;
                 }
-                const auto& v = it->second;
+                const auto &v = it->second;
                 auto lb = lower_bound(v.begin(), v.end(), r - limit);
                 if (lb != v.end() && *lb < r) {
                     ans = max(ans, r - *lb);

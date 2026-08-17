@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool areSimilar(vector<vector<int>>& mat, int k) {
+    bool areSimilar(vector<vector<int>> &mat, int k) {
         int m = mat.size(), n = mat[0].size();
         k = k % n;
 

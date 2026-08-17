@@ -1,36 +1,36 @@
 //
 // Created by user on 2025/7/22.
 //
-#include <string>
-#include <vector>
 #include <map>
+#include <string>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Solution {
 private:
-    struct node{
-        map<string, node*> children;
+    struct node {
+        map<string, node *> children;
         bool deleted = false;
     };
 
-    void mark_sig(node * root, unordered_map<string, vector<node *>> &sigs){
-        if(!root->children.empty()){
+    void mark_sig(node *root, unordered_map<string, vector<node *>> &sigs) {
+        if (!root->children.empty()) {
             sigs[generate_sig(root)].push_back(root);
-            if(sigs[generate_sig(root)].size() > 1){
-                for (node * n:sigs[generate_sig(root)]) {
+            if (sigs[generate_sig(root)].size() > 1) {
+                for (node *n : sigs[generate_sig(root)]) {
                     n->deleted = true;
                 }
             }
         }
-        for (const auto& pair: root->children) {
+        for (const auto &pair : root->children) {
             mark_sig(root->children[pair.first], sigs);
         }
     }
 
-    string generate_sig(node * root){
+    string generate_sig(node *root) {
         string sig = "(";
-        for (const auto& pair: root->children) {
+        for (const auto &pair : root->children) {
             sig += pair.first;
             sig += generate_sig(pair.second);
         }
@@ -38,9 +38,10 @@ private:
         return sig;
     }
 
-    void dfs(node * root, vector<vector<string>> &remaining, vector<string> path = {}){
-        for (const auto& pair: root->children) {
-            if(pair.second->deleted){
+    void dfs(node *root, vector<vector<string>> &remaining,
+             vector<string> path = {}) {
+        for (const auto &pair : root->children) {
+            if (pair.second->deleted) {
                 continue;
             }
             vector<string> cur_path = path;
@@ -51,12 +52,13 @@ private:
     }
 
 public:
-    vector<vector<string>> deleteDuplicateFolder(vector<vector<string>>& paths) {
+    vector<vector<string>>
+    deleteDuplicateFolder(vector<vector<string>> &paths) {
         node *root = new node;
-        for (const vector<string>& path:paths) {
-            node * cur = root;
-            for (const string& s:path) {
-                if(not cur->children[s]){
+        for (const vector<string> &path : paths) {
+            node *cur = root;
+            for (const string &s : path) {
+                if (not cur->children[s]) {
                     cur->children[s] = new node;
                 }
                 cur = cur->children[s];
@@ -86,7 +88,8 @@ struct Trie {
 
 class Solution {
 public:
-    vector<vector<string>> deleteDuplicateFolder(vector<vector<string>>& paths) {
+    vector<vector<string>> deleteDuplicateFolder(vector<vector<string>>& paths)
+{
         // 根节点
         Trie* root = new Trie();
 

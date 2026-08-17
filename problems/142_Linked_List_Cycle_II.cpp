@@ -13,9 +13,8 @@ class Solution {
 public:
     ListNode *detectCycle(ListNode *head) {
         std::map<ListNode *, int> myMap;
-        ListNode* p = head;
-        while (p != NULL)
-        {
+        ListNode *p = head;
+        while (p != NULL) {
             if (myMap.find(p) != myMap.end()) {
                 return p;
             }

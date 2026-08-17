@@ -7,7 +7,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int maxSubarrayLength(vector<int> &nums, int k) {
         unordered_map<int, int> freq;
         int left = 0;

@@ -1,19 +1,18 @@
 //
 // Created by user on 2025/9/18.
 //
-#include <queue>
 #include <functional>
+#include <queue>
 using namespace std;
 
 class MedianFinder {
     priority_queue<int, vector<int>, greater<>> min_heap;
     priority_queue<int> max_heap;
+
 public:
-    MedianFinder() {
+    MedianFinder() {}
 
-    }
-
-    void swap(){
+    void swap() {
         int max_heap_top = max_heap.top();
         max_heap.pop();
         int min_heap_top = min_heap.top();
@@ -24,25 +23,25 @@ public:
     }
 
     void addNum(int num) {
-        if(min_heap.empty() || min_heap.size() <= max_heap.size()){
+        if (min_heap.empty() || min_heap.size() <= max_heap.size()) {
             min_heap.push(num);
-        }else{
+        } else {
             max_heap.push(num);
         }
-        if(max_heap.empty()){
+        if (max_heap.empty()) {
             return;
         }
-        while (max_heap.top() > min_heap.top()){
+        while (max_heap.top() > min_heap.top()) {
             swap();
         }
     }
 
     double findMedian() {
-        int total = min_heap.size()+max_heap.size();
-        if(total%2 == 0){
-            return 1.0*(min_heap.top()+max_heap.top())/2;
-        }else{
-            return 1.0*min_heap.top();
+        int total = min_heap.size() + max_heap.size();
+        if (total % 2 == 0) {
+            return 1.0 * (min_heap.top() + max_heap.top()) / 2;
+        } else {
+            return 1.0 * min_heap.top();
         }
     }
 };

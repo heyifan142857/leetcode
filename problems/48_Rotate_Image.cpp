@@ -7,13 +7,13 @@ using namespace std;
 
 class Solution {
 public:
-    void rotate(vector<vector<int>>& matrix) {
+    void rotate(vector<vector<int>> &matrix) {
         int n = matrix.size();
 
-        double center = 1.0 * (n-1) / 2;
+        double center = 1.0 * (n - 1) / 2;
 
-        for (int i = 0; i < (n+1)/2; ++i) {
-            for (int j = i; j < n-1-i; ++j) {
+        for (int i = 0; i < (n + 1) / 2; ++i) {
+            for (int j = i; j < n - 1 - i; ++j) {
                 int x = i;
                 int y = j;
                 int first = matrix[i][j];

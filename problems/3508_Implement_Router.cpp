@@ -1,13 +1,13 @@
 //
 // Created by user on 2025/9/20.
 //
-#include <vector>
-#include <queue>
-#include <deque>
-#include <string>
-#include <unordered_map>
 #include <algorithm>
 #include <bits/stdc++.h>
+#include <deque>
+#include <queue>
+#include <string>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Router {
@@ -19,31 +19,34 @@ class Router {
     unordered_map<int, int> deleted;
 
 public:
-    Router(int memoryLimit):capacity(memoryLimit) {}
+    Router(int memoryLimit) : capacity(memoryLimit) {}
 
-    string packetId(int source, int destination, int timestamp){
-        return to_string(source)+ "+"+ to_string(destination)+ "+" + to_string(timestamp);
+    string packetId(int source, int destination, int timestamp) {
+        return to_string(source) + "+" + to_string(destination) + "+" +
+               to_string(timestamp);
     }
 
-    string packetId(vector<int> packet){
-        if(packet.size() < 3) return "";
+    string packetId(vector<int> packet) {
+        if (packet.size() < 3)
+            return "";
         return packetId(packet[0], packet[1], packet[2]);
     }
 
-    bool isExist(int source, int destination, int timestamp){
+    bool isExist(int source, int destination, int timestamp) {
         return includes[packetId(source, destination, timestamp)] > 0;
     }
 
-    bool isExist(vector<int> packet){
-        if(packet.size() < 3) return false;
+    bool isExist(vector<int> packet) {
+        if (packet.size() < 3)
+            return false;
         return isExist(packet[0], packet[1], packet[2]);
     }
 
     bool addPacket(int source, int destination, int timestamp) {
-        if(isExist(source, destination, timestamp)){
+        if (isExist(source, destination, timestamp)) {
             return false;
         }
-        if((int)routes.size() >= capacity){
+        if ((int)routes.size() >= capacity) {
             forwardPacket();
         }
         routes.push_back({source, destination, timestamp});
@@ -53,7 +56,7 @@ public:
     }
 
     vector<int> forwardPacket() {
-        if(routes.empty()){
+        if (routes.empty()) {
             return {};
         }
         vector<int> front = routes.front();
@@ -65,11 +68,12 @@ public:
 
     int getCount(int destination, int startTime, int endTime) {
         auto &cur = desPacket[destination];
-        if(cur.empty()) return 0;
+        if (cur.empty())
+            return 0;
 
         int del = deleted[destination];
-        auto lower = lower_bound(cur.begin()+del, cur.end(), startTime);
-        auto upper = upper_bound(cur.begin()+del, cur.end(), endTime);
+        auto lower = lower_bound(cur.begin() + del, cur.end(), startTime);
+        auto upper = upper_bound(cur.begin() + del, cur.end(), endTime);
         return upper - lower;
     }
 };

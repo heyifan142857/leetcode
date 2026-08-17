@@ -6,11 +6,11 @@ using namespace std;
 
 class Solution {
 public:
-    int largestMagicSquare(vector<vector<int>>& grid) {
+    int largestMagicSquare(vector<vector<int>> &grid) {
         int m = grid.size();
         int n = grid[0].size();
         int maxSize = min(m, n);
-        
+
         // Try all possible sizes from largest to smallest
         for (int k = maxSize; k >= 1; k--) {
             // Try all possible top-left positions for a k x k square
@@ -22,18 +22,18 @@ public:
                 }
             }
         }
-        
+
         return 1; // At least 1x1 is always a magic square
     }
-    
+
 private:
-    bool isMagicSquare(vector<vector<int>>& grid, int row, int col, int k) {
+    bool isMagicSquare(vector<vector<int>> &grid, int row, int col, int k) {
         // Calculate the target sum (use first row as reference)
         int targetSum = 0;
         for (int j = col; j < col + k; j++) {
             targetSum += grid[row][j];
         }
-        
+
         // Check all rows
         for (int i = row; i < row + k; i++) {
             int rowSum = 0;
@@ -44,7 +44,7 @@ private:
                 return false;
             }
         }
-        
+
         // Check all columns
         for (int j = col; j < col + k; j++) {
             int colSum = 0;
@@ -55,7 +55,7 @@ private:
                 return false;
             }
         }
-        
+
         // Check main diagonal (top-left to bottom-right)
         int diag1Sum = 0;
         for (int d = 0; d < k; d++) {
@@ -64,7 +64,7 @@ private:
         if (diag1Sum != targetSum) {
             return false;
         }
-        
+
         // Check anti-diagonal (top-right to bottom-left)
         int diag2Sum = 0;
         for (int d = 0; d < k; d++) {
@@ -73,7 +73,7 @@ private:
         if (diag2Sum != targetSum) {
             return false;
         }
-        
+
         return true;
     }
 };

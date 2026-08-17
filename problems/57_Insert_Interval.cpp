@@ -7,9 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+    vector<vector<int>> insert(vector<vector<int>> &intervals,
+                               vector<int> &newInterval) {
         vector<vector<int>> result;
-        for (const auto& interval : intervals) {
+        for (const auto &interval : intervals) {
             if (interval[0] < newInterval[0] && interval[1] < newInterval[0]) {
                 result.push_back(interval);
             } else if (interval[0] > newInterval[1]) {
@@ -21,6 +22,6 @@ public:
             }
         }
         result.push_back(newInterval);
-        return result;      
+        return result;
     }
 };

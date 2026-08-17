@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int xorAfterQueries(vector<int>& nums, vector<vector<int>>& queries) {
+    int xorAfterQueries(vector<int> &nums, vector<vector<int>> &queries) {
         static constexpr int MOD = 1'000'000'007;
 
         const int n = static_cast<int>(nums.size());
@@ -27,7 +27,7 @@ public:
             return result;
         };
 
-        for (const auto& query : queries) {
+        for (const auto &query : queries) {
             const int l = query[0];
             const int r = query[1];
             const int k = query[2];
@@ -57,7 +57,7 @@ public:
                 diff[rem].assign(len + 1, 1);
             }
 
-            for (const auto& query : smallQueries[k]) {
+            for (const auto &query : smallQueries[k]) {
                 const int l = query[0];
                 const int r = query[1];
                 const int v = query[3];
@@ -65,10 +65,12 @@ public:
                 const int left = l / k;
                 const int right = (r - rem) / k;
 
-                diff[rem][left] = static_cast<long long>(diff[rem][left]) * v % MOD;
+                diff[rem][left] =
+                    static_cast<long long>(diff[rem][left]) * v % MOD;
                 if (right + 1 < static_cast<int>(diff[rem].size())) {
                     diff[rem][right + 1] =
-                        static_cast<long long>(diff[rem][right + 1]) * modPow(v, MOD - 2) % MOD;
+                        static_cast<long long>(diff[rem][right + 1]) *
+                        modPow(v, MOD - 2) % MOD;
                 }
             }
 

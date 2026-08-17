@@ -35,7 +35,8 @@ public:
         int rootX = find(x);
         int rootY = find(y);
 
-        if (rootX == rootY) return; // 已经在同一集合中
+        if (rootX == rootY)
+            return; // 已经在同一集合中
 
         // 按秩合并：将秩较小的树合并到秩较大的树
         if (rank[rootX] < rank[rootY]) {
@@ -50,40 +51,36 @@ public:
     }
 
     // 判断元素x和y是否属于同一集合
-    bool connected(int x, int y) {
-        return find(x) == find(y);
-    }
+    bool connected(int x, int y) { return find(x) == find(y); }
 
     // 返回连通分量的数量
-    int getCount() {
-        return count;
-    }
+    int getCount() { return count; }
 };
 
 class Solution {
 public:
-    int numIslands(vector<vector<char>>& grid) {
+    int numIslands(vector<vector<char>> &grid) {
         int m = grid.size();
         int n = grid[0].size();
         UnionFind uf(m * n);
         int cnt0 = 0;
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if(grid[i][j] == '0'){
+                if (grid[i][j] == '0') {
                     cnt0++;
-                }else{
-                    int ufNum = i*n+j;
-                    if(i>0 && grid[i-1][j] == '1'){
-                        int postUfNum = (i-1)*n+j;
+                } else {
+                    int ufNum = i * n + j;
+                    if (i > 0 && grid[i - 1][j] == '1') {
+                        int postUfNum = (i - 1) * n + j;
                         uf.unionSet(ufNum, postUfNum);
                     }
-                    if(j>0 && grid[i][j-1] == '1'){
-                        int postUfNum = i*n+j-1;
+                    if (j > 0 && grid[i][j - 1] == '1') {
+                        int postUfNum = i * n + j - 1;
                         uf.unionSet(ufNum, postUfNum);
                     }
                 }
             }
         }
-        return (uf.getCount()-cnt0);
+        return (uf.getCount() - cnt0);
     }
 };

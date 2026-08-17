@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int smallestNumber(int n, int t) {
         while (true) {
             int x = n;

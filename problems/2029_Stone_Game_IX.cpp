@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool stoneGameIX(vector<int>& stones) {
+    bool stoneGameIX(vector<int> &stones) {
         int count[3] = {};
         for (int stone : stones) {
             ++count[stone % 3];

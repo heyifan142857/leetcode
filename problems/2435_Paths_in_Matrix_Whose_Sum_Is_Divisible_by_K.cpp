@@ -6,11 +6,12 @@ using namespace std;
 
 class Solution {
 public:
-    int numberOfPaths(vector<vector<int> > &grid, int k) {
+    int numberOfPaths(vector<vector<int>> &grid, int k) {
         int m = grid.size();
         int n = grid[0].size();
 
-        vector<vector<vector<long long> > > dp(m, vector<vector<long long> >(n, vector<long long>(k, 0)));
+        vector<vector<vector<long long>>> dp(
+            m, vector<vector<long long>>(n, vector<long long>(k, 0)));
         dp[m - 1][n - 1][grid[m - 1][n - 1] % k] = 1;
 
         for (int i = m - 1; i >= 0; --i) {

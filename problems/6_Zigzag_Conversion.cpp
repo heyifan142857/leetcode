@@ -8,12 +8,12 @@ using namespace std;
 class Solution {
 public:
     string convert(string s, int numRows) {
-        vector<vector<char> > zigzag(numRows, vector<char>());
+        vector<vector<char>> zigzag(numRows, vector<char>());
         string res;
         int direction = 1;
         int pos = 0;
 
-        for (auto c: s) {
+        for (auto c : s) {
             zigzag[pos].push_back(c);
 
             if (numRows == 1) {
@@ -26,8 +26,8 @@ public:
             pos += direction;
         }
 
-        for (auto vector: zigzag) {
-            for (auto c: vector) {
+        for (auto vector : zigzag) {
+            for (auto c : vector) {
                 res += c;
             }
         }

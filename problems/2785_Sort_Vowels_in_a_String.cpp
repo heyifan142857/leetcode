@@ -1,22 +1,22 @@
 //
 // Created by user on 2025/9/11.
 //
-#include <string>
-#include <vector>
 #include <algorithm>
+#include <string>
 #include <unordered_set>
+#include <vector>
 using namespace std;
-
 
 class Solution {
 public:
     string sortVowels(string s) {
-        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u',
+                                      'A', 'E', 'I', 'O', 'U'};
         vector<int> order;
         vector<int> vs;
         for (int i = 0; i < s.size(); ++i) {
             char c = s[i];
-            if(vowels.contains(c)){
+            if (vowels.contains(c)) {
                 vs.push_back(c);
                 order.push_back(i);
             }

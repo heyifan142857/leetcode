@@ -7,7 +7,8 @@ using namespace std;
 
 class Solution {
 public:
-    int minCost(vector<int>& houses, vector<vector<int>>& cost, int m, int n, int target) {
+    int minCost(vector<int> &houses, vector<vector<int>> &cost, int m, int n,
+                int target) {
         const int INF = 1e9;
         vector<vector<int>> prev(target + 1, vector<int>(n + 1, INF));
         vector<vector<int>> curr(target + 1, vector<int>(n + 1, INF));
@@ -36,7 +37,8 @@ public:
                         int nextGroups = groups + (color != prevColor);
                         if (nextGroups <= target) {
                             curr[nextGroups][color] =
-                                min(curr[nextGroups][color], prev[groups][prevColor]);
+                                min(curr[nextGroups][color],
+                                    prev[groups][prevColor]);
                         }
                     } else {
                         for (int color = 1; color <= n; ++color) {
@@ -46,8 +48,7 @@ public:
                             }
                             curr[nextGroups][color] = min(
                                 curr[nextGroups][color],
-                                prev[groups][prevColor] + cost[i][color - 1]
-                            );
+                                prev[groups][prevColor] + cost[i][color - 1]);
                         }
                     }
                 }

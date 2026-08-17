@@ -11,11 +11,11 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        ListNode* p = head;
-        ListNode* ans = nullptr;
-        while (p!= nullptr){
-            ListNode* newNode = new ListNode(p->val, ans);
+    ListNode *reverseList(ListNode *head) {
+        ListNode *p = head;
+        ListNode *ans = nullptr;
+        while (p != nullptr) {
+            ListNode *newNode = new ListNode(p->val, ans);
             ans = newNode;
             p = p->next;
         }

@@ -1,17 +1,17 @@
 //
 // Created by user on 2025/7/25.
 //
-#include <climits>
 #include <algorithm>
-#include <vector>
+#include <climits>
 #include <queue>
+#include <vector>
 using namespace std;
 
 using timePos = pair<int, pair<int, int>>;
 
 class Solution {
 public:
-    int minTimeToReach(vector<vector<int>>& moveTime) {
+    int minTimeToReach(vector<vector<int>> &moveTime) {
         int n = moveTime.size();
         int m = moveTime[0].size();
 
@@ -21,32 +21,33 @@ public:
 
         timeMap[0][0] = 0;
 
-        auto cmp = [](const timePos& a, const timePos& b) {
+        auto cmp = [](const timePos &a, const timePos &b) {
             return a.first > b.first;
         };
-        priority_queue<timePos, vector<timePos>, decltype(cmp)> timePosList(cmp);
+        priority_queue<timePos, vector<timePos>, decltype(cmp)> timePosList(
+            cmp);
 
         timePosList.push({0, {0, 0}});
 
-        while(!timePosList.empty()){
+        while (!timePosList.empty()) {
             timePos curTimePos = timePosList.top();
             timePosList.pop();
 
-            for (pair<int, int> direction: directions) {
+            for (pair<int, int> direction : directions) {
                 int i = curTimePos.second.first;
                 int j = curTimePos.second.second;
                 int nn = i + direction.first;
                 int nm = j + direction.second;
 
-                if(nn >= 0 && nn < n && nm >= 0 && nm < m){
-                    int new_dist = max(moveTime[nn][nm], timeMap[i][j])+1;
-                    if(new_dist < timeMap[nn][nm]){
+                if (nn >= 0 && nn < n && nm >= 0 && nm < m) {
+                    int new_dist = max(moveTime[nn][nm], timeMap[i][j]) + 1;
+                    if (new_dist < timeMap[nn][nm]) {
                         timeMap[nn][nm] = new_dist;
                         timePosList.push({new_dist, {nn, nm}});
                     }
                 }
             }
         }
-        return timeMap[n-1][m-1];
+        return timeMap[n - 1][m - 1];
     }
 };

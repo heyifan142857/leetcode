@@ -7,12 +7,13 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> findDegrees(vector<vector<int>>& matrix) {
+    vector<int> findDegrees(vector<vector<int>> &matrix) {
         int n = matrix.size();
         vector<int> ans(n, 0);
         for (int i = 0; i < n; ++i) {
             int deg = 0;
-            for (int j = 0; j < (int)matrix[i].size(); ++j) deg += matrix[i][j];
+            for (int j = 0; j < (int)matrix[i].size(); ++j)
+                deg += matrix[i][j];
             ans[i] = deg;
         }
         return ans;

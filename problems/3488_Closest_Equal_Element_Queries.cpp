@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> solveQueries(vector<int>& nums, vector<int>& queries) {
+    vector<int> solveQueries(vector<int> &nums, vector<int> &queries) {
         const int n = static_cast<int>(nums.size());
         unordered_map<int, vector<int>> positions;
         positions.reserve(n * 2);
@@ -18,7 +18,7 @@ public:
 
         vector<int> best(n, -1);
 
-        for (auto& [value, idxs] : positions) {
+        for (auto &[value, idxs] : positions) {
             const int m = static_cast<int>(idxs.size());
             if (m == 1) {
                 continue;

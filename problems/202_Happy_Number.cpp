@@ -7,7 +7,8 @@ using namespace std;
 class Solution {
 public:
     bool isHappy(int n) {
-        if (n == 1) return true;
+        if (n == 1)
+            return true;
         unordered_set<int> seen;
         while (n != 1 && !seen.count(n)) {
             seen.insert(n);

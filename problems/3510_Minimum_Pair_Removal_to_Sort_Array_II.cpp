@@ -1,7 +1,7 @@
-#include <vector>
-#include <queue>
-#include <list>
 #include <bitset>
+#include <list>
+#include <queue>
+#include <vector>
 using namespace std;
 
 typedef long long ll;
@@ -29,7 +29,7 @@ struct Pair {
 };
 
 struct ComparePair {
-    bool operator()(const Pair& a, const Pair& b) {
+    bool operator()(const Pair &a, const Pair &b) {
         if (a.cost != b.cost) {
             return a.cost > b.cost;
         }
@@ -39,7 +39,7 @@ struct ComparePair {
 
 class Solution {
 public:
-    int minimumPairRemoval(std::vector<int>& nums) {
+    int minimumPairRemoval(std::vector<int> &nums) {
         std::list<Node> list;
         std::bitset<MAX_N> merged;
         std::priority_queue<Pair, std::vector<Pair>, ComparePair> pq;

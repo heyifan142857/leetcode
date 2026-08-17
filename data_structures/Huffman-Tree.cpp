@@ -16,34 +16,29 @@ struct HuffmanNode {
     char symbol;
     int weight;
     size_t order;
-    HuffmanNode* left;
-    HuffmanNode* right;
+    HuffmanNode *left;
+    HuffmanNode *right;
 
     HuffmanNode(char symbol, int weight, size_t order,
-                HuffmanNode* left = nullptr, HuffmanNode* right = nullptr)
-        : symbol(symbol),
-          weight(weight),
-          order(order),
-          left(left),
+                HuffmanNode *left = nullptr, HuffmanNode *right = nullptr)
+        : symbol(symbol), weight(weight), order(order), left(left),
           right(right) {}
 
-    bool isLeaf() const {
-        return left == nullptr && right == nullptr;
-    }
+    bool isLeaf() const { return left == nullptr && right == nullptr; }
 };
 
 class HuffmanTree {
 public:
-    explicit HuffmanTree(const vector<pair<char, int>>& frequencies)
+    explicit HuffmanTree(const vector<pair<char, int>> &frequencies)
         : root_(nullptr), nextOrder_(0) {
         build(frequencies);
         buildCodes(root_, "");
     }
 
-    HuffmanTree(const HuffmanTree&) = delete;
-    HuffmanTree& operator=(const HuffmanTree&) = delete;
+    HuffmanTree(const HuffmanTree &) = delete;
+    HuffmanTree &operator=(const HuffmanTree &) = delete;
 
-    const string& codeOf(char symbol) const {
+    const string &codeOf(char symbol) const {
         const auto position = codes_.find(symbol);
         if (position == codes_.end()) {
             throw invalid_argument("字符不在哈夫曼树中");
@@ -51,7 +46,7 @@ public:
         return position->second;
     }
 
-    string encode(const string& text) const {
+    string encode(const string &text) const {
         string result;
         for (char symbol : text) {
             result += codeOf(symbol);
@@ -59,7 +54,7 @@ public:
         return result;
     }
 
-    string decode(const string& bits) const {
+    string decode(const string &bits) const {
         if (root_ == nullptr) {
             if (bits.empty()) {
                 return "";
@@ -80,7 +75,7 @@ public:
         }
 
         string result;
-        HuffmanNode* current = root_;
+        HuffmanNode *current = root_;
         for (char bit : bits) {
             if (bit == '0') {
                 current = current->left;
@@ -104,8 +99,7 @@ public:
 
 private:
     struct CompareNode {
-        bool operator()(const HuffmanNode* lhs,
-                        const HuffmanNode* rhs) const {
+        bool operator()(const HuffmanNode *lhs, const HuffmanNode *rhs) const {
             if (lhs->weight != rhs->weight) {
                 return lhs->weight > rhs->weight;
             }
@@ -114,22 +108,22 @@ private:
     };
 
     vector<unique_ptr<HuffmanNode>> nodes_;
-    HuffmanNode* root_;
+    HuffmanNode *root_;
     size_t nextOrder_;
     unordered_map<char, string> codes_;
 
-    HuffmanNode* createNode(char symbol, int weight,
-                            HuffmanNode* left = nullptr,
-                            HuffmanNode* right = nullptr) {
-        nodes_.push_back(make_unique<HuffmanNode>(
-            symbol, weight, nextOrder_++, left, right));
+    HuffmanNode *createNode(char symbol, int weight,
+                            HuffmanNode *left = nullptr,
+                            HuffmanNode *right = nullptr) {
+        nodes_.push_back(make_unique<HuffmanNode>(symbol, weight, nextOrder_++,
+                                                  left, right));
         return nodes_.back().get();
     }
 
-    void build(const vector<pair<char, int>>& frequencies) {
-        priority_queue<HuffmanNode*, vector<HuffmanNode*>, CompareNode> trees;
+    void build(const vector<pair<char, int>> &frequencies) {
+        priority_queue<HuffmanNode *, vector<HuffmanNode *>, CompareNode> trees;
 
-        for (const auto& [symbol, weight] : frequencies) {
+        for (const auto &[symbol, weight] : frequencies) {
             if (weight <= 0) {
                 throw invalid_argument("字符权值必须为正数");
             }
@@ -144,13 +138,13 @@ private:
         codes_.clear();
 
         while (trees.size() > 1) {
-            HuffmanNode* left = trees.top();
+            HuffmanNode *left = trees.top();
             trees.pop();
-            HuffmanNode* right = trees.top();
+            HuffmanNode *right = trees.top();
             trees.pop();
 
-            HuffmanNode* parent = createNode(
-                '\0', left->weight + right->weight, left, right);
+            HuffmanNode *parent =
+                createNode('\0', left->weight + right->weight, left, right);
             trees.push(parent);
         }
 
@@ -159,7 +153,7 @@ private:
         }
     }
 
-    void buildCodes(HuffmanNode* node, const string& prefix) {
+    void buildCodes(HuffmanNode *node, const string &prefix) {
         if (node == nullptr) {
             return;
         }
@@ -175,15 +169,13 @@ private:
 
 int main() {
     const vector<pair<char, int>> frequencies = {
-        {'A', 5}, {'B', 9}, {'C', 12},
-        {'D', 13}, {'E', 16}, {'F', 45}
-    };
+        {'A', 5}, {'B', 9}, {'C', 12}, {'D', 13}, {'E', 16}, {'F', 45}};
     HuffmanTree tree(frequencies);
 
     cout << "哈夫曼编码:" << endl;
-    for (const auto& [symbol, weight] : frequencies) {
-        cout << symbol << " (权值 " << weight << "): "
-             << tree.codeOf(symbol) << endl;
+    for (const auto &[symbol, weight] : frequencies) {
+        cout << symbol << " (权值 " << weight << "): " << tree.codeOf(symbol)
+             << endl;
     }
 
     const string text = "FACE";

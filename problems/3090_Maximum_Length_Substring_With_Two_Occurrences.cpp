@@ -1,7 +1,7 @@
 // 3090. Maximum Length Substring With Two Occurrences
 // Created automatically
 // Created at 2026-08-14 23:19:34
- 
+
 #include <algorithm>
 #include <array>
 #include <string>
@@ -13,7 +13,8 @@ public:
         array<int, 26> count{};
         int answer = 0;
 
-        for (int left = 0, right = 0; right < static_cast<int>(s.size()); ++right) {
+        for (int left = 0, right = 0; right < static_cast<int>(s.size());
+             ++right) {
             ++count[s[right] - 'a'];
 
             while (count[s[right] - 'a'] > 2) {

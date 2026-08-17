@@ -7,14 +7,14 @@ using namespace std;
 
 class Solution {
 public:
-    long long countPairs(vector<int>& nums, int k) {
+    long long countPairs(vector<int> &nums, int k) {
         long long answer = 0;
         unordered_map<int, int> count_by_gcd;
 
         for (int num : nums) {
             int current_gcd = gcd(num, k);
 
-            for (const auto& [previous_gcd, frequency] : count_by_gcd) {
+            for (const auto &[previous_gcd, frequency] : count_by_gcd) {
                 if (1LL * previous_gcd * current_gcd % k == 0) {
                     answer += frequency;
                 }

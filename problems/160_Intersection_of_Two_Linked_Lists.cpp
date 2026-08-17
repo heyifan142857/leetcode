@@ -15,20 +15,20 @@ struct ListNode {
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        unordered_set<ListNode*> set;
-        ListNode* pA = headA;
-        ListNode* pB = headB;
+        unordered_set<ListNode *> set;
+        ListNode *pA = headA;
+        ListNode *pB = headB;
 
-        while (pA != nullptr || pB != nullptr){
-            if(pA != nullptr){
-                if(set.contains(pA)){
+        while (pA != nullptr || pB != nullptr) {
+            if (pA != nullptr) {
+                if (set.contains(pA)) {
                     return pA;
                 }
                 set.insert(pA);
                 pA = pA->next;
             }
-            if(pB != nullptr){
-                if(set.contains(pB)){
+            if (pB != nullptr) {
+                if (set.contains(pB)) {
                     return pB;
                 }
                 set.insert(pB);

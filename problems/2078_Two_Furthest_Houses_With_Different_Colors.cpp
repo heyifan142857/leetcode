@@ -7,9 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    int maxDistance(vector<int>& colors) {
+    int maxDistance(vector<int> &colors) {
         int n = colors.size();
-        if (n < 2) return 0;
+        if (n < 2)
+            return 0;
         int ans = 0;
 
         for (int i = n - 1; i >= 0; --i) {

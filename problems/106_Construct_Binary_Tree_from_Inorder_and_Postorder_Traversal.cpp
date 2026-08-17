@@ -11,21 +11,26 @@ struct TreeNode {
     TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right)
+        : val(x), left(left), right(right) {}
 };
 
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        if (inorder.empty() || postorder.empty()) return nullptr;
+    TreeNode *buildTree(vector<int> &inorder, vector<int> &postorder) {
+        if (inorder.empty() || postorder.empty())
+            return nullptr;
 
-        unordered_map<int,int> idx;
-        for (int i = 0; i < (int)inorder.size(); ++i) idx[inorder[i]] = i;
+        unordered_map<int, int> idx;
+        for (int i = 0; i < (int)inorder.size(); ++i)
+            idx[inorder[i]] = i;
 
-        function<TreeNode*(int,int,int,int)> build = [&](int inL, int inR, int postL, int postR) -> TreeNode* {
-            if (inL > inR || postL > postR) return nullptr;
+        function<TreeNode *(int, int, int, int)> build =
+            [&](int inL, int inR, int postL, int postR) -> TreeNode * {
+            if (inL > inR || postL > postR)
+                return nullptr;
             int rootVal = postorder[postR];
-            TreeNode* root = new TreeNode(rootVal);
+            TreeNode *root = new TreeNode(rootVal);
             int inRoot = idx[rootVal];
             int leftSize = inRoot - inL;
             root->left = build(inL, inRoot - 1, postL, postL + leftSize - 1);

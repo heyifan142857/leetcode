@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    bool hasValue(const unordered_map<int, int>& freq, long long target) {
+    bool hasValue(const unordered_map<int, int> &freq, long long target) {
         if (target <= 0 || target > INT_MAX) {
             return false;
         }
@@ -15,7 +15,7 @@ public:
         return it != freq.end() && it->second > 0;
     }
 
-    bool canPartitionGrid(vector<vector<int>>& grid) {
+    bool canPartitionGrid(vector<vector<int>> &grid) {
         int m = grid.size(), n = grid[0].size();
         long long total = 0;
         vector<long long> rowSum(m, 0), colSum(n, 0);
@@ -31,8 +31,9 @@ public:
             }
         }
 
-        auto canRemoveHorizontal = [&](long long target, int topRow, int bottomRow,
-                                       const unordered_map<int, int>& freq) -> bool {
+        auto canRemoveHorizontal =
+            [&](long long target, int topRow, int bottomRow,
+                const unordered_map<int, int> &freq) -> bool {
             int height = bottomRow - topRow + 1;
             if (height == 1 && n == 1) {
                 return false;
@@ -41,13 +42,15 @@ public:
                 return hasValue(freq, target);
             }
             if (height == 1) {
-                return grid[topRow][0] == target || grid[topRow][n - 1] == target;
+                return grid[topRow][0] == target ||
+                       grid[topRow][n - 1] == target;
             }
             return grid[topRow][0] == target || grid[bottomRow][0] == target;
         };
 
-        auto canRemoveVertical = [&](long long target, int leftCol, int rightCol,
-                                     const unordered_map<int, int>& freq) -> bool {
+        auto canRemoveVertical =
+            [&](long long target, int leftCol, int rightCol,
+                const unordered_map<int, int> &freq) -> bool {
             int width = rightCol - leftCol + 1;
             if (m == 1 && width == 1) {
                 return false;
@@ -56,7 +59,8 @@ public:
                 return hasValue(freq, target);
             }
             if (width == 1) {
-                return grid[0][leftCol] == target || grid[m - 1][leftCol] == target;
+                return grid[0][leftCol] == target ||
+                       grid[m - 1][leftCol] == target;
             }
             return grid[0][leftCol] == target || grid[0][rightCol] == target;
         };
@@ -83,7 +87,8 @@ public:
                     return true;
                 }
             } else {
-                if (canRemoveHorizontal(bottomSum - topSum, cut + 1, m - 1, bottomFreq)) {
+                if (canRemoveHorizontal(bottomSum - topSum, cut + 1, m - 1,
+                                        bottomFreq)) {
                     return true;
                 }
             }
@@ -111,7 +116,8 @@ public:
                     return true;
                 }
             } else {
-                if (canRemoveVertical(rightSum - leftSum, cut + 1, n - 1, rightFreq)) {
+                if (canRemoveVertical(rightSum - leftSum, cut + 1, n - 1,
+                                      rightFreq)) {
                     return true;
                 }
             }

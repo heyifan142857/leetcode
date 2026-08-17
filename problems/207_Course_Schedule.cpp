@@ -2,13 +2,13 @@
 // Created by user on 2025/9/11.
 //
 
-#include <vector>
 #include <list>
+#include <vector>
 using namespace std;
 
 class Solution {
     vector<list<int>> adj;
-    bool isCyclicDFS(int node, vector<bool>& visited, vector<bool>& recStack) {
+    bool isCyclicDFS(int node, vector<bool> &visited, vector<bool> &recStack) {
         if (!visited[node]) {
             visited[node] = true;
             recStack[node] = true;
@@ -18,8 +18,7 @@ class Solution {
                     if (isCyclicDFS(neighbor, visited, recStack)) {
                         return true;
                     }
-                }
-                else if (recStack[neighbor]) {
+                } else if (recStack[neighbor]) {
                     return true;
                 }
             }
@@ -28,10 +27,11 @@ class Solution {
         recStack[node] = false;
         return false;
     }
+
 public:
-    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+    bool canFinish(int numCourses, vector<vector<int>> &prerequisites) {
         adj.resize(numCourses);
-        for (auto prerequisite: prerequisites) {
+        for (auto prerequisite : prerequisites) {
             adj[prerequisite[0]].push_back(prerequisite[1]);
         }
         vector<bool> visited(numCourses, false);

@@ -9,7 +9,7 @@ class Solution {
 public:
     int findFinalValue(vector<int> &nums, int original) {
         ranges::sort(nums);
-        for (auto const num: nums) {
+        for (auto const num : nums) {
             if (original == num) {
                 original *= 2;
             }

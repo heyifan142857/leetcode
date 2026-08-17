@@ -11,23 +11,23 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode* fast = head;
-        ListNode* slow = head;
+    ListNode *removeNthFromEnd(ListNode *head, int n) {
+        ListNode *fast = head;
+        ListNode *slow = head;
 
-        ListNode* last = nullptr;
+        ListNode *last = nullptr;
 
         for (int i = 0; i < n; ++i) {
             fast = fast->next;
         }
 
-        while (fast != nullptr){
+        while (fast != nullptr) {
             fast = fast->next;
             last = slow;
             slow = slow->next;
         }
 
-        if(last == nullptr){
+        if (last == nullptr) {
             return head->next;
         }
 

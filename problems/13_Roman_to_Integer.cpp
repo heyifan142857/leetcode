@@ -21,11 +21,11 @@ public:
         int prev = 0;
 
         int n = s.size();
-        for (int i = n-1; i >= 0; --i) {
+        for (int i = n - 1; i >= 0; --i) {
             int cur = mp[s[i]];
-            if(cur >= prev){
+            if (cur >= prev) {
                 res += cur;
-            }else{
+            } else {
                 res -= cur;
             }
             prev = cur;

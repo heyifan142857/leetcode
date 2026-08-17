@@ -1,11 +1,11 @@
 //
 // Created by user on 2025/9/25.
 //
-#include <string>
-#include <vector>
-#include <climits>
-#include <unordered_set>
 #include <algorithm>
+#include <climits>
+#include <string>
+#include <unordered_set>
+#include <vector>
 using namespace std;
 
 class Solution {
@@ -18,20 +18,20 @@ public:
         for (int i = 0; i < s.size(); ++i) {
             char c = s[i];
             int cur = c - 'a';
-            if(!include.contains(cur)){
+            if (!include.contains(cur)) {
                 include.insert(cur);
             }
-            if(start[cur]>i){
+            if (start[cur] > i) {
                 start[cur] = i;
             }
-            if(end[cur]<i){
+            if (end[cur] < i) {
                 end[cur] = i;
             }
         }
 
         vector<pair<int, int>> list;
 
-        for (auto c: include) {
+        for (auto c : include) {
             list.push_back({start[c], end[c]});
         }
 
@@ -39,10 +39,10 @@ public:
 
         vector<pair<int, int>> merge_list;
 
-        for (auto e: list) {
-            if(merge_list.empty() || merge_list.back().second<e.first){
+        for (auto e : list) {
+            if (merge_list.empty() || merge_list.back().second < e.first) {
                 merge_list.push_back(e);
-            }else{
+            } else {
                 int temp1 = merge_list.back().first;
                 int temp2 = merge_list.back().second;
                 merge_list.pop_back();
@@ -51,8 +51,8 @@ public:
         }
 
         vector<int> res;
-        for (auto e: merge_list) {
-            res.push_back(e.second-e.first+1);
+        for (auto e : merge_list) {
+            res.push_back(e.second - e.first + 1);
         }
 
         return res;

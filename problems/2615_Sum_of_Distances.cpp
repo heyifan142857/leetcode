@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<long long> distance(vector<int>& nums) {
+    vector<long long> distance(vector<int> &nums) {
         int n = nums.size();
         vector<long long> ans(n, 0);
         unordered_map<int, vector<int>> positions;
@@ -16,7 +16,7 @@ public:
             positions[nums[i]].push_back(i);
         }
 
-        for (auto& [_, idxs] : positions) {
+        for (auto &[_, idxs] : positions) {
             int m = idxs.size();
             vector<long long> prefix(m + 1, 0);
 
@@ -26,7 +26,8 @@ public:
 
             for (int i = 0; i < m; ++i) {
                 long long left = 1LL * idxs[i] * i - prefix[i];
-                long long right = (prefix[m] - prefix[i + 1]) - 1LL * idxs[i] * (m - i - 1);
+                long long right =
+                    (prefix[m] - prefix[i + 1]) - 1LL * idxs[i] * (m - i - 1);
                 ans[idxs[i]] = left + right;
             }
         }

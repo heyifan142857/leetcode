@@ -11,21 +11,21 @@ struct ListNode {
 
 class Solution {
 public:
-    bool isPalindrome(ListNode* head) {
-        ListNode* p = head;
-        ListNode* new_head = nullptr;
+    bool isPalindrome(ListNode *head) {
+        ListNode *p = head;
+        ListNode *new_head = nullptr;
 
-        while (p != nullptr){
-            ListNode* new_node = new ListNode(p->val, new_head);
+        while (p != nullptr) {
+            ListNode *new_node = new ListNode(p->val, new_head);
             new_head = new_node;
             p = p->next;
         }
 
-        ListNode* p1 = head;
-        ListNode* p2 = new_head;
+        ListNode *p1 = head;
+        ListNode *p2 = new_head;
 
-        while (p1 != nullptr && p2 != nullptr){
-            if(p1->val != p2->val){
+        while (p1 != nullptr && p2 != nullptr) {
+            if (p1->val != p2->val) {
                 return false;
             }
             p1 = p1->next;

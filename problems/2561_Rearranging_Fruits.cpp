@@ -2,17 +2,17 @@
 // Created by user on 2025/8/2.
 //
 
-#include <vector>
-#include <climits>
-#include <unordered_map>
-#include <cmath>
 #include <algorithm>
+#include <climits>
+#include <cmath>
 #include <numeric>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    long long minCost(vector<int>& basket1, vector<int>& basket2) {
+    long long minCost(vector<int> &basket1, vector<int> &basket2) {
         int m = INT_MAX;
         unordered_map<int, int> frequency_map;
         for (int b1 : basket1) {
@@ -32,11 +32,11 @@ public:
                 merge.push_back(k);
             }
         }
-        nth_element(merge.begin(), merge.begin() + merge.size() / 2, merge.end());
+        nth_element(merge.begin(), merge.begin() + merge.size() / 2,
+                    merge.end());
         return accumulate(merge.begin(), merge.begin() + merge.size() / 2, 0ll,
                           [&](long long res, int x) -> long long {
                               return res + min(2 * m, x);
-                          }
-        );
+                          });
     }
 };

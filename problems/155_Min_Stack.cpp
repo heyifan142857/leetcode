@@ -1,18 +1,17 @@
 //
 // Created by user on 2025/9/16.
 //
-#include <stack>
 #include <algorithm>
 #include <climits>
+#include <stack>
 using namespace std;
 
 class MinStack {
     stack<int> ori_stack;
     stack<int> min_stack;
+
 public:
-    MinStack() {
-        min_stack.push(INT_MAX);
-    }
+    MinStack() { min_stack.push(INT_MAX); }
 
     void push(int val) {
         ori_stack.push(val);
@@ -24,13 +23,9 @@ public:
         min_stack.pop();
     }
 
-    int top() {
-        return ori_stack.top();
-    }
+    int top() { return ori_stack.top(); }
 
-    int getMin() {
-        return min_stack.top();
-    }
+    int getMin() { return min_stack.top(); }
 };
 
 /**

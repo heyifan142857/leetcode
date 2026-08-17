@@ -7,17 +7,23 @@ using namespace std;
 
 class Solution {
 public:
-    string findTheString(vector<vector<int>>& lcp) {
+    string findTheString(vector<vector<int>> &lcp) {
         int n = lcp.size();
-        if (n == 0) return "";
-        for (int i = 0; i < n; ++i) if ((int)lcp[i].size() != n) return "";
+        if (n == 0)
+            return "";
+        for (int i = 0; i < n; ++i)
+            if ((int)lcp[i].size() != n)
+                return "";
 
         // Basic validity checks.
         for (int i = 0; i < n; ++i) {
-            if (lcp[i][i] != n - i) return "";
+            if (lcp[i][i] != n - i)
+                return "";
             for (int j = 0; j < n; ++j) {
-                if (lcp[i][j] < 0 || lcp[i][j] > n - max(i, j)) return "";
-                if (lcp[i][j] != lcp[j][i]) return "";
+                if (lcp[i][j] < 0 || lcp[i][j] > n - max(i, j))
+                    return "";
+                if (lcp[i][j] != lcp[j][i])
+                    return "";
             }
         }
 
@@ -25,11 +31,14 @@ public:
         string s(n, '?');
         char cur = 'a';
         for (int i = 0; i < n; ++i) {
-            if (s[i] != '?') continue;
-            if (cur > 'z') return "";
+            if (s[i] != '?')
+                continue;
+            if (cur > 'z')
+                return "";
             s[i] = cur;
             for (int j = i + 1; j < n; ++j) {
-                if (lcp[i][j] > 0) s[j] = cur;
+                if (lcp[i][j] > 0)
+                    s[j] = cur;
             }
             ++cur;
         }
@@ -38,8 +47,10 @@ public:
         vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
         for (int i = n - 1; i >= 0; --i) {
             for (int j = n - 1; j >= 0; --j) {
-                if (s[i] == s[j]) dp[i][j] = 1 + dp[i + 1][j + 1];
-                if (dp[i][j] != lcp[i][j]) return "";
+                if (s[i] == s[j])
+                    dp[i][j] = 1 + dp[i + 1][j + 1];
+                if (dp[i][j] != lcp[i][j])
+                    return "";
             }
         }
 

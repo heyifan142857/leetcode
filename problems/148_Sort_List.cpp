@@ -15,23 +15,23 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* sortList(ListNode* head) {
+    ListNode *sortList(ListNode *head) {
         vector<int> v;
-        ListNode* p = head;
-        while (p != nullptr){
+        ListNode *p = head;
+        while (p != nullptr) {
             v.push_back(p->val);
             p = p->next;
         }
         sort(v.begin(), v.end());
 
-        ListNode* new_head = nullptr;
+        ListNode *new_head = nullptr;
         p = nullptr;
 
         for (int i = 0; i < v.size(); ++i) {
-            if(i==0){
+            if (i == 0) {
                 new_head = new ListNode(v[i]);
                 p = new_head;
-            } else{
+            } else {
                 p->next = new ListNode(v[i]);
                 p = p->next;
             }

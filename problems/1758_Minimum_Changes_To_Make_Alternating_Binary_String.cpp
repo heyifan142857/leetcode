@@ -17,6 +17,6 @@ public:
                 count2++;
             }
         }
-        return min(count1, count2);        
+        return min(count1, count2);
     }
 };

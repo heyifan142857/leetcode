@@ -1,8 +1,8 @@
 //
 // Created by azote on 12/7/25.
 //
-#include <string>
 #include <cctype>
+#include <string>
 using namespace std;
 
 class Solution {

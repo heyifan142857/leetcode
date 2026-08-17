@@ -7,19 +7,19 @@ using namespace std;
 
 class Solution {
 public:
-    bool canPartitionGrid(vector<vector<int>>& grid) {
+    bool canPartitionGrid(vector<vector<int>> &grid) {
         int m = grid.size(), n = grid[0].size();
         long long totalSum = 0;
-        for (const auto& row : grid) {
+        for (const auto &row : grid) {
             for (int num : row) {
-                totalSum += num;    
+                totalSum += num;
             }
         }
         if (totalSum % 2 != 0) {
             return false;
         }
         long long target = totalSum / 2;
-        
+
         long long colSum = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -32,7 +32,7 @@ public:
                 break;
             }
         }
-        
+
         long long rowSum = 0;
         for (int j = 0; j < n; j++) {
             for (int i = 0; i < m; i++) {

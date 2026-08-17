@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    int maximumSafenessFactor(vector<vector<int>>& grid) {
+    int maximumSafenessFactor(vector<vector<int>> &grid) {
         int n = grid.size();
         vector<vector<int>> dist(n, vector<int>(n, INT_MAX));
         queue<pair<int, int>> q;
@@ -30,7 +30,8 @@ public:
             q.pop();
             for (auto [dr, dc] : dirs) {
                 int nr = r + dr, nc = c + dc;
-                if (nr >= 0 && nr < n && nc >= 0 && nc < n && dist[nr][nc] > dist[r][c] + 1) {
+                if (nr >= 0 && nr < n && nc >= 0 && nc < n &&
+                    dist[nr][nc] > dist[r][c] + 1) {
                     dist[nr][nc] = dist[r][c] + 1;
                     q.push({nr, nc});
                 }

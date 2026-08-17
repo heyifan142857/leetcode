@@ -6,26 +6,30 @@
 using namespace std;
 
 class Solution {
-    int numberOfLiveNeighbors(const vector<vector<int>>& board, int row, int col) {
+    int numberOfLiveNeighbors(const vector<vector<int>> &board, int row,
+                              int col) {
         int count = 0;
         int rows = board.size();
         int cols = board[0].size();
-        
+
         for (int i = -1; i <= 1; ++i) {
             for (int j = -1; j <= 1; ++j) {
-                if (i == 0 && j == 0) continue; // Skip the cell itself
+                if (i == 0 && j == 0)
+                    continue; // Skip the cell itself
                 int newRow = row + i;
                 int newCol = col + j;
-                if (newRow >= 0 && newRow < rows && newCol >= 0 && newCol < cols) {
+                if (newRow >= 0 && newRow < rows && newCol >= 0 &&
+                    newCol < cols) {
                     count += board[newRow][newCol];
                 }
             }
         }
-        
+
         return count;
     }
+
 public:
-    void gameOfLife(vector<vector<int>>& board) {
+    void gameOfLife(vector<vector<int>> &board) {
         int rows = board.size();
         int cols = board[0].size();
         vector<vector<int>> newBoard(rows, vector<int>(cols, 0));

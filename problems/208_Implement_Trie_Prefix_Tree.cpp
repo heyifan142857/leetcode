@@ -5,33 +5,32 @@
 #include <vector>
 using namespace std;
 
-struct Node{
+struct Node {
     char var;
-    vector<Node*> son;
-    Node():var('0'), son({}){}
-    Node(char c):var(c), son({}){}
+    vector<Node *> son;
+    Node() : var('0'), son({}) {}
+    Node(char c) : var(c), son({}) {}
 };
 
 class Trie {
-    Node* head;
+    Node *head;
+
 public:
-    Trie() {
-        head = new Node;
-    }
+    Trie() { head = new Node; }
 
     void insert(string word) {
-        Node* p = head;
-        for (auto c: word) {
+        Node *p = head;
+        for (auto c : word) {
             bool exist = false;
-            for (auto son: p->son) {
-                if(son != nullptr && c == son->var){
+            for (auto son : p->son) {
+                if (son != nullptr && c == son->var) {
                     p = son;
                     exist = true;
                     break;
                 }
             }
-            if(!exist){
-                Node* newNode = new Node(c);
+            if (!exist) {
+                Node *newNode = new Node(c);
                 p->son.push_back(newNode);
                 p = newNode;
             }
@@ -40,22 +39,22 @@ public:
     }
 
     bool search(string word) {
-        Node* p = head;
-        for (auto c: word) {
+        Node *p = head;
+        for (auto c : word) {
             bool exist = false;
-            for (auto son: p->son) {
-                if(son != nullptr && c == son->var){
+            for (auto son : p->son) {
+                if (son != nullptr && c == son->var) {
                     p = son;
                     exist = true;
                     break;
                 }
             }
-            if(!exist){
+            if (!exist) {
                 return false;
             }
         }
-        for (auto son: p->son) {
-            if(son == nullptr){
+        for (auto son : p->son) {
+            if (son == nullptr) {
                 return true;
             }
         }
@@ -63,17 +62,17 @@ public:
     }
 
     bool startsWith(string prefix) {
-        Node* p = head;
-        for (auto c: prefix) {
+        Node *p = head;
+        for (auto c : prefix) {
             bool exist = false;
-            for (auto son: p->son) {
-                if(son != nullptr && c == son->var){
+            for (auto son : p->son) {
+                if (son != nullptr && c == son->var) {
                     p = son;
                     exist = true;
                     break;
                 }
             }
-            if(!exist){
+            if (!exist) {
                 return false;
             }
         }

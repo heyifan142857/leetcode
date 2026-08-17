@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    vector<vector<int>> minAbsDiff(vector<vector<int>>& grid, int k) {
+    vector<vector<int>> minAbsDiff(vector<vector<int>> &grid, int k) {
         const int m = static_cast<int>(grid.size());
         const int n = static_cast<int>(grid[0].size());
         const int rows = m - k + 1;
@@ -23,7 +23,8 @@ public:
 
             void removeGap(int a, int b) {
                 auto it = gaps.find(b - a);
-                if (it != gaps.end()) gaps.erase(it);
+                if (it != gaps.end())
+                    gaps.erase(it);
             }
 
             void addValue(int x) {
@@ -34,20 +35,24 @@ public:
                 }
 
                 auto nextIt = freq.lower_bound(x);
-                auto prevIt = (nextIt == freq.begin()) ? freq.end() : prev(nextIt);
+                auto prevIt =
+                    (nextIt == freq.begin()) ? freq.end() : prev(nextIt);
 
                 if (prevIt != freq.end() && nextIt != freq.end()) {
                     removeGap(prevIt->first, nextIt->first);
                 }
-                if (prevIt != freq.end()) addGap(prevIt->first, x);
-                if (nextIt != freq.end()) addGap(x, nextIt->first);
+                if (prevIt != freq.end())
+                    addGap(prevIt->first, x);
+                if (nextIt != freq.end())
+                    addGap(x, nextIt->first);
 
                 freq.emplace(x, 1);
             }
 
             void removeValue(int x) {
                 auto it = freq.find(x);
-                if (it == freq.end()) return;
+                if (it == freq.end())
+                    return;
 
                 if (it->second >= 2) {
                     --it->second;
@@ -57,8 +62,10 @@ public:
                 auto nextIt = next(it);
                 auto prevIt = (it == freq.begin()) ? freq.end() : prev(it);
 
-                if (prevIt != freq.end()) removeGap(prevIt->first, x);
-                if (nextIt != freq.end()) removeGap(x, nextIt->first);
+                if (prevIt != freq.end())
+                    removeGap(prevIt->first, x);
+                if (nextIt != freq.end())
+                    removeGap(x, nextIt->first);
                 if (prevIt != freq.end() && nextIt != freq.end()) {
                     addGap(prevIt->first, nextIt->first);
                 }
@@ -67,7 +74,8 @@ public:
             }
 
             int queryMinAbsDiff() const {
-                if (freq.size() <= 1) return 0;
+                if (freq.size() <= 1)
+                    return 0;
                 return *gaps.begin();
             }
         };
@@ -114,7 +122,8 @@ public:
             }
 
             // Move down one row if possible.
-            if (top + 1 >= rows) break;
+            if (top + 1 >= rows)
+                break;
             const int removeRow = top;
             const int addRow = top + k;
             for (int c = left; c < left + k; ++c) {

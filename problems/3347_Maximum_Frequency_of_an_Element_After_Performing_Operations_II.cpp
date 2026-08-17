@@ -6,14 +6,16 @@ using namespace std;
 
 class Solution {
 public:
-    int maxFrequency(vector<int>& nums, int k, int numOperations) {
+    int maxFrequency(vector<int> &nums, int k, int numOperations) {
         int n = nums.size();
-        if (n == 0) return 0;
-        unordered_map<long long,int> freq;
-        for (long long v : nums) freq[v]++;
+        if (n == 0)
+            return 0;
+        unordered_map<long long, int> freq;
+        for (long long v : nums)
+            freq[v]++;
 
-        vector<pair<long long,int>> events;
-        events.reserve(2*n);
+        vector<pair<long long, int>> events;
+        events.reserve(2 * n);
         for (long long v : nums) {
             long long s = v - k;
             long long e = v + k;
@@ -24,8 +26,10 @@ public:
         sort(events.begin(), events.end());
 
         set<long long> critical;
-        for (auto &p : events) critical.insert(p.first);
-        for (auto &kv : freq) critical.insert(kv.first);
+        for (auto &p : events)
+            critical.insert(p.first);
+        for (auto &kv : freq)
+            critical.insert(kv.first);
 
         int ei = 0;
         long long curTotal = 0;
@@ -39,11 +43,14 @@ public:
 
             int exact = 0;
             auto it = freq.find(pos);
-            if (it != freq.end()) exact = it->second;
+            if (it != freq.end())
+                exact = it->second;
 
-            ans = max(ans, (int)min<long long>(curTotal, (long long)exact + numOperations));
+            ans = max(ans, (int)min<long long>(curTotal, (long long)exact +
+                                                             numOperations));
 
-            ans = max(ans, (int)min<long long>(curTotal, (long long)numOperations));
+            ans = max(ans,
+                      (int)min<long long>(curTotal, (long long)numOperations));
         }
         return ans;
     }

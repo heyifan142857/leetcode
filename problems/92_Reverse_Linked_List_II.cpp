@@ -12,18 +12,18 @@ struct ListNode {
 
 class Solution {
 public:
-    ListNode* reverseBetween(ListNode* head, int left, int right) {
-        ListNode* temp = new ListNode(0, head);
-        ListNode* prev = temp;
+    ListNode *reverseBetween(ListNode *head, int left, int right) {
+        ListNode *temp = new ListNode(0, head);
+        ListNode *prev = temp;
 
         for (int i = 0; i < left - 1; ++i) {
             prev = prev->next;
         }
 
-        ListNode* current = prev->next;
+        ListNode *current = prev->next;
 
         for (int i = 0; i < right - left; ++i) {
-            ListNode* nextNode = current->next;
+            ListNode *nextNode = current->next;
             current->next = nextNode->next;
             nextNode->next = prev->next;
             prev->next = nextNode;

@@ -2,13 +2,13 @@
 // Created by user on 2025/8/7.
 //
 
-#include <vector>
 #include <climits>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    int maxCollectedFruits(vector<vector<int>>& fruits) {
+    int maxCollectedFruits(vector<vector<int>> &fruits) {
         int n = fruits.size();
         int ans = 0;
         for (int i = 0; i < n; ++i) {

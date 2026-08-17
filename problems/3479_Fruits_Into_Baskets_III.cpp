@@ -2,16 +2,16 @@
 // Created by user on 2025/8/6.
 //
 
-#include <vector>
 #include <algorithm>
 #include <valarray>
+#include <vector>
 
 using namespace std;
 
-//官方题解
+// 官方题解
 class Solution {
 public:
-    int numOfUnplacedFruits(vector<int>& fruits, vector<int>& baskets) {
+    int numOfUnplacedFruits(vector<int> &fruits, vector<int> &baskets) {
         int n = baskets.size();
         int m = sqrt(n);
         int section = (n + m - 1) / m;

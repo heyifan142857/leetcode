@@ -7,16 +7,20 @@ using namespace std;
 
 class Solution {
 public:
-    bool findRotation(vector<vector<int>>& mat, vector<vector<int>>& target) {
+    bool findRotation(vector<vector<int>> &mat, vector<vector<int>> &target) {
         int n = mat.size();
         for (int rot = 0; rot < 4; ++rot) {
             bool same = true;
             for (int i = 0; i < n && same; ++i) {
                 for (int j = 0; j < n; ++j) {
-                    if (mat[i][j] != target[i][j]) { same = false; break; }
+                    if (mat[i][j] != target[i][j]) {
+                        same = false;
+                        break;
+                    }
                 }
             }
-            if (same) return true;
+            if (same)
+                return true;
 
             // rotate mat by 90 degrees clockwise
             vector<vector<int>> t(n, vector<int>(n));

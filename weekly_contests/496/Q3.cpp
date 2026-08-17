@@ -7,9 +7,10 @@ using namespace std;
 
 class Solution {
 public:
-    long long minIncrease(vector<int>& nums) {
+    long long minIncrease(vector<int> &nums) {
         const int n = static_cast<int>(nums.size());
-        if (n <= 2) return 0;
+        if (n <= 2)
+            return 0;
 
         auto peakCost = [&](int i) -> long long {
             long long need = max(nums[i - 1], nums[i + 1]) + 1LL - nums[i];
@@ -21,8 +22,9 @@ public:
             long long cost;
         };
 
-        auto better = [](const State& a, const State& b) -> State {
-            if (a.peaks != b.peaks) return a.peaks > b.peaks ? a : b;
+        auto better = [](const State &a, const State &b) -> State {
+            if (a.peaks != b.peaks)
+                return a.peaks > b.peaks ? a : b;
             return a.cost < b.cost ? a : b;
         };
 

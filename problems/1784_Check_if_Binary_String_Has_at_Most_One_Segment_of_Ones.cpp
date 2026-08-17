@@ -21,7 +21,8 @@ public:
         while (i < n && s[i] == '0') {
             i++;
         }
-        // If we've reached the end, it means there was at most one segment of ones
+        // If we've reached the end, it means there was at most one segment of
+        // ones
         return i == n;
     }
 };

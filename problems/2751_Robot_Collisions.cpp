@@ -7,13 +7,13 @@ using namespace std;
 
 class Solution {
 public:
-    vector<int> survivedRobotsHealths(vector<int>& positions, vector<int>& healths, string directions) {
+    vector<int> survivedRobotsHealths(vector<int> &positions,
+                                      vector<int> &healths, string directions) {
         int n = (int)positions.size();
         vector<int> order(n);
         iota(order.begin(), order.end(), 0);
-        sort(order.begin(), order.end(), [&](int a, int b) {
-            return positions[a] < positions[b];
-        });
+        sort(order.begin(), order.end(),
+             [&](int a, int b) { return positions[a] < positions[b]; });
 
         vector<int> curHealth = healths;
         vector<int> st;
@@ -44,7 +44,8 @@ public:
 
         vector<int> ans;
         for (int i = 0; i < n; ++i) {
-            if (curHealth[i] > 0) ans.push_back(curHealth[i]);
+            if (curHealth[i] > 0)
+                ans.push_back(curHealth[i]);
         }
         return ans;
     }

@@ -6,7 +6,7 @@
 using namespace std;
 
 class Solution {
-    void _separateDigits(vector<int>& nums, const int num) {
+    void _separateDigits(vector<int> &nums, const int num) {
         if (num <= 0) {
             return;
         }
@@ -15,8 +15,9 @@ class Solution {
         _separateDigits(nums, num / 10);
         nums.push_back(lastDigit);
     }
+
 public:
-    vector<int> separateDigits(vector<int>& nums) {
+    vector<int> separateDigits(vector<int> &nums) {
         vector<int> ans;
 
         for (const auto &num : nums) {

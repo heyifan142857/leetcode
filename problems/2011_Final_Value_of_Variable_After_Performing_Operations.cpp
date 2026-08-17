@@ -7,13 +7,13 @@ using namespace std;
 
 class Solution {
 public:
-    int finalValueAfterOperations(vector<string>& operations) {
+    int finalValueAfterOperations(vector<string> &operations) {
         int val = 0;
 
-        for (auto operate: operations) {
-            if(operate == "X++" || operate == "++X"){
+        for (auto operate : operations) {
+            if (operate == "X++" || operate == "++X") {
                 val++;
-            }else{
+            } else {
                 val--;
             }
         }

@@ -7,15 +7,10 @@
 using namespace std;
 
 class Solution {
-    vector<pair<int, string>> romans = {
-            {1000, "M"},
-            {500,  "D"},
-            {100,  "C"},
-            {50,   "L"},
-            {10,   "X"},
-            {5,    "V"},
-            {1,    "I"}
-    };
+    vector<pair<int, string>> romans = {{1000, "M"}, {500, "D"}, {100, "C"},
+                                        {50, "L"},   {10, "X"},  {5, "V"},
+                                        {1, "I"}};
+
 public:
     string intToRoman(int num) {
         if (num <= 0) {
@@ -48,7 +43,7 @@ public:
                 return "IX" + intToRoman(num - 9);
             }
         } else {
-            for (auto roman: romans) {
+            for (auto roman : romans) {
                 if (roman.first <= num) {
                     return roman.second + intToRoman(num - roman.first);
                 }

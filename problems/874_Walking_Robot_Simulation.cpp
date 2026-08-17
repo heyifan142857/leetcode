@@ -7,11 +7,11 @@ using namespace std;
 
 class Solution {
 public:
-    int robotSim(vector<int>& commands, vector<vector<int>>& obstacles) {
+    int robotSim(vector<int> &commands, vector<vector<int>> &obstacles) {
         unordered_set<long long> blocked;
         blocked.reserve(obstacles.size() * 2);
 
-        for (const auto& obstacle : obstacles) {
+        for (const auto &obstacle : obstacles) {
             long long x = obstacle[0];
             long long y = obstacle[1];
             blocked.insert((x << 32) ^ (y & 0xffffffffLL));
@@ -37,8 +37,10 @@ public:
             for (int step = 0; step < command; ++step) {
                 int nx = x + dx[dir];
                 int ny = y + dy[dir];
-                long long key = (static_cast<long long>(nx) << 32) ^ (static_cast<unsigned int>(ny));
-                if (blocked.count(key)) break;
+                long long key = (static_cast<long long>(nx) << 32) ^
+                                (static_cast<unsigned int>(ny));
+                if (blocked.count(key))
+                    break;
 
                 x = nx;
                 y = ny;

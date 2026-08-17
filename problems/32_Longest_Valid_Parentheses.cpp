@@ -1,16 +1,17 @@
 //
 // Created by user on 2025/10/1.
 //
+#include <stack>
 #include <string>
 #include <vector>
-#include <stack>
 using namespace std;
 
 class Solution {
 public:
     int longestValidParentheses(string s) {
         int n = s.size();
-        if (n <= 1) return 0;
+        if (n <= 1)
+            return 0;
 
         vector<int> dp(n, 0);
         int maxLen = 0;

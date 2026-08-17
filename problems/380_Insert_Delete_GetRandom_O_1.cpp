@@ -1,37 +1,36 @@
 //
 // Created by user on 2025/10/13.
 //
+#include <cstdlib>
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <cstdlib>
 using namespace std;
 
 class RandomizedSet {
     unordered_map<int, int> mp;
     vector<int> v;
+
 public:
-    RandomizedSet() {
-        srand(time(nullptr));
-    }
+    RandomizedSet() { srand(time(nullptr)); }
 
     bool insert(int val) {
-        if(mp.find(val) != mp.end()){
+        if (mp.find(val) != mp.end()) {
             return false;
         }
         v.push_back(val);
-        mp[val] = v.size()-1;
+        mp[val] = v.size() - 1;
         return true;
     }
 
     bool remove(int val) {
-        if(mp.find(val) != mp.end()){
+        if (mp.find(val) != mp.end()) {
             int index = mp[val];
             mp.erase(val);
             swap(v[index], v.back());
             v.pop_back();
             return true;
-        } else{
+        } else {
             return false;
         }
     }

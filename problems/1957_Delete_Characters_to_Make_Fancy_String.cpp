@@ -11,13 +11,13 @@ public:
         vector<char> str;
         char previous = ' ';
         int count = 0;
-        for (char c:s) {
-            if(c == previous){
+        for (char c : s) {
+            if (c == previous) {
                 count++;
-                if(count < 3){
+                if (count < 3) {
                     str.push_back(c);
                 }
-            }else{
+            } else {
                 count = 1;
                 previous = c;
                 str.push_back(c);

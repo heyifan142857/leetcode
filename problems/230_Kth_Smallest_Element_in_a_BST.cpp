@@ -8,15 +8,17 @@ struct TreeNode {
     TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right)
+        : val(x), left(left), right(right) {}
 };
 
 class Solution {
     int _count;
     int res;
     bool found;
+
 public:
-    void _kthSmallest(TreeNode* root) {
+    void _kthSmallest(TreeNode *root) {
         if (root == nullptr) {
             return;
         }
@@ -27,7 +29,7 @@ public:
 
         if (_count > 1) {
             _count--;
-        }else {
+        } else {
             if (found == true) {
                 return;
             }
@@ -38,7 +40,7 @@ public:
 
         _kthSmallest(root->right);
     }
-    int kthSmallest(TreeNode* root, int k) {
+    int kthSmallest(TreeNode *root, int k) {
         _count = k;
         res = -1;
         found = false;

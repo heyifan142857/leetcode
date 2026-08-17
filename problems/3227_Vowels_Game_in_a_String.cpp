@@ -9,8 +9,8 @@ class Solution {
 public:
     bool doesAliceWin(string s) {
         unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
-        for (auto c: s) {
-            if(vowels.contains(c)){
+        for (auto c : s) {
+            if (vowels.contains(c)) {
                 return true;
             }
         }

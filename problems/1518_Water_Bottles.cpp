@@ -6,7 +6,7 @@ public:
     int numWaterBottles(int numBottles, int numExchange) {
         int remain = numBottles;
         int drink = numBottles;
-        while (remain >= numExchange){
+        while (remain >= numExchange) {
             int exchange = remain / numExchange;
             remain %= numExchange;
             remain += exchange;

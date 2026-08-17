@@ -16,7 +16,7 @@ class Solution {
         return false;
     }
 
-  public:
+public:
     int missingInteger(vector<int> &nums) {
         int n = nums.size();
 

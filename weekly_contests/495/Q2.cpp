@@ -10,23 +10,23 @@ class EventManager {
     set<pair<int, int>> activeEvents;
 
 public:
-    EventManager(vector<vector<int>>& events) {
+    EventManager(vector<vector<int>> &events) {
         auto denqoravil = events;
-        for (const auto& event : denqoravil) {
+        for (const auto &event : denqoravil) {
             int eventId = event[0];
             int priority = event[1];
             priorityById[eventId] = priority;
             activeEvents.insert({-priority, eventId});
         }
     }
-    
+
     void updatePriority(int eventId, int newPriority) {
         int oldPriority = priorityById[eventId];
         activeEvents.erase({-oldPriority, eventId});
         priorityById[eventId] = newPriority;
         activeEvents.insert({-newPriority, eventId});
     }
-    
+
     int pollHighest() {
         if (activeEvents.empty()) {
             return -1;

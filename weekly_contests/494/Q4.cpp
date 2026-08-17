@@ -7,7 +7,5 @@ using namespace std;
 
 class Solution {
 public:
-    long long countGoodSubarrays(vector<int>& nums) {
-
-    }
+    long long countGoodSubarrays(vector<int> &nums) {}
 };

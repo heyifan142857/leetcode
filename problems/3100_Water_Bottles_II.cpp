@@ -8,7 +8,7 @@ public:
 
         int emptyBottle = numBottles;
 
-        while (emptyBottle/numExchange){
+        while (emptyBottle / numExchange) {
             emptyBottle = emptyBottle - numExchange + 1;
             cnt++;
             numExchange++;

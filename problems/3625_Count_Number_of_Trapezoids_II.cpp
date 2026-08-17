@@ -1,19 +1,19 @@
 //
 // Created by azote on 12/3/25.
 //
-#include <vector>
-#include <unordered_map>
 #include <map>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
-//official ver
+// official ver
 class Solution {
 public:
-    int countTrapezoids(vector<vector<int> > &points) {
+    int countTrapezoids(vector<vector<int>> &points) {
         int n = points.size();
         int inf = 1e9 + 7;
-        unordered_map<float, vector<float> > slopeToIntercept;
-        unordered_map<int, vector<float> > midToSlope;
+        unordered_map<float, vector<float>> slopeToIntercept;
+        unordered_map<int, vector<float>> midToSlope;
         int ans = 0;
         for (int i = 0; i < n; i++) {
             int x1 = points[i][0];
@@ -28,38 +28,38 @@ public:
                     k = inf;
                     b = x1;
                 } else {
-                    k = (float) (y2 - y1) / (x2 - x1);
-                    b = (float) (y1 * dx - x1 * dy) / dx;
+                    k = (float)(y2 - y1) / (x2 - x1);
+                    b = (float)(y1 * dx - x1 * dy) / dx;
                 }
                 int mid = (x1 + x2) * 10000 + (y1 + y2);
                 slopeToIntercept[k].push_back(b);
                 midToSlope[mid].push_back(k);
             }
         }
-        for (auto &[_, sti]: slopeToIntercept) {
+        for (auto &[_, sti] : slopeToIntercept) {
             if (sti.size() == 1) {
                 continue;
             }
             map<float, int> cnt;
-            for (float b: sti) {
+            for (float b : sti) {
                 cnt[b]++;
             }
             int sum = 0;
-            for (auto &[_, count]: cnt) {
+            for (auto &[_, count] : cnt) {
                 ans += sum * count;
                 sum += count;
             }
         }
-        for (auto &[_, mts]: midToSlope) {
+        for (auto &[_, mts] : midToSlope) {
             if (mts.size() == 1) {
                 continue;
             }
             map<float, int> cnt;
-            for (float k: mts) {
+            for (float k : mts) {
                 cnt[k]++;
             }
             int sum = 0;
-            for (auto &[_, count]: cnt) {
+            for (auto &[_, count] : cnt) {
                 ans -= sum * count;
                 sum += count;
             }
@@ -67,4 +67,3 @@ public:
         return ans;
     }
 };
-

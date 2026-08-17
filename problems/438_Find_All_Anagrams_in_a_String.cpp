@@ -11,7 +11,7 @@ public:
     vector<int> findAnagrams(string s, string p) {
         vector<int> ans;
 
-        if(p.size() > s.size()){
+        if (p.size() > s.size()) {
             return ans;
         }
 
@@ -21,20 +21,20 @@ public:
         vector<int> anagrams = vector(26, 0);
 
         for (int i = 0; i < p.size(); ++i) {
-            original[p[i]-'a']++;
-            anagrams[s[i]-'a']++;
+            original[p[i] - 'a']++;
+            anagrams[s[i] - 'a']++;
         }
 
         for (int i = len; i < s.size(); ++i) {
-            if(original == anagrams){
-                ans.push_back(i-len);
+            if (original == anagrams) {
+                ans.push_back(i - len);
             }
-            anagrams[s[i-len]-'a']--;
-            anagrams[s[i]-'a']++;
+            anagrams[s[i - len] - 'a']--;
+            anagrams[s[i] - 'a']++;
         }
 
-        if(original == anagrams){
-            ans.push_back(s.size()-len);
+        if (original == anagrams) {
+            ans.push_back(s.size() - len);
         }
 
         return ans;

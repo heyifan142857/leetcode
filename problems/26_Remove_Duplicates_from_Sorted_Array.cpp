@@ -6,18 +6,18 @@ using namespace std;
 
 class Solution {
 public:
-    int removeDuplicates(vector<int>& nums) {
+    int removeDuplicates(vector<int> &nums) {
         int n = nums.size();
 
         int fast = 0;
         int slow = 0;
 
-        while (fast < n){
-            int next = fast+1;
-            while (next < n){
-                if(nums[fast] == nums[next]){
+        while (fast < n) {
+            int next = fast + 1;
+            while (next < n) {
+                if (nums[fast] == nums[next]) {
                     next++;
-                }else{
+                } else {
                     break;
                 }
             }

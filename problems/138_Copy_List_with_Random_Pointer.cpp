@@ -9,8 +9,8 @@ using namespace std;
 class Node {
 public:
     int val;
-    Node* next;
-    Node* random;
+    Node *next;
+    Node *random;
 
     Node(int _val) {
         val = _val;
@@ -21,19 +21,19 @@ public:
 
 class Solution {
 public:
-    Node* copyRandomList(Node* head) {
-        unordered_map<Node*, Node*> mp;
+    Node *copyRandomList(Node *head) {
+        unordered_map<Node *, Node *> mp;
 
-        Node* p = head;
-        Node* np = nullptr;
-        Node* new_head = nullptr;
+        Node *p = head;
+        Node *np = nullptr;
+        Node *new_head = nullptr;
 
-        while (p != nullptr){
-            if(np == nullptr){
+        while (p != nullptr) {
+            if (np == nullptr) {
                 new_head = new Node(p->val);
                 new_head->random = p->random;
                 np = new_head;
-            } else{
+            } else {
                 np->next = new Node(p->val);
                 np->next->random = p->random;
                 np = np->next;
@@ -45,7 +45,7 @@ public:
 
         mp[nullptr] = nullptr;
         p = new_head;
-        while (p != nullptr){
+        while (p != nullptr) {
             p->random = mp[p->random];
             p = p->next;
         }

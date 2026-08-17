@@ -1,9 +1,9 @@
 //
 // Created by user on 2025/9/18.
 //
-#include <vector>
-#include <unordered_map>
 #include <queue>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 class TaskManager {
@@ -12,8 +12,8 @@ class TaskManager {
     priority_queue<pair<int, int>> pq;
 
 public:
-    TaskManager(vector<vector<int>>& tasks) {
-        for(auto task: tasks){
+    TaskManager(vector<vector<int>> &tasks) {
+        for (auto task : tasks) {
             int userId = task[0];
             int taskId = task[1];
             int priority = task[2];
@@ -40,10 +40,11 @@ public:
     }
 
     int execTop() {
-        if(tp.empty()){
+        if (tp.empty()) {
             return -1;
         }
-        while(!tp.contains(pq.top().second) || tp[pq.top().second]!=pq.top().first){
+        while (!tp.contains(pq.top().second) ||
+               tp[pq.top().second] != pq.top().first) {
             pq.pop();
         }
         int id = pq.top().second;

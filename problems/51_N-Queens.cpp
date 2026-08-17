@@ -2,8 +2,8 @@
 // Created by user on 2025/9/15.
 //
 #include <string>
-#include <vector>
 #include <unordered_set>
+#include <vector>
 using namespace std;
 
 class Solution {
@@ -13,13 +13,16 @@ class Solution {
 
     bool canDeploy(int row, int col) {
         for (int i = 0; i < row; ++i) {
-            if (grid[i][col] == 'Q') return false;
+            if (grid[i][col] == 'Q')
+                return false;
         }
-        for (int i=row-1, j=col-1; i>=0 && j>=0; --i, --j) {
-            if (grid[i][j] == 'Q') return false;
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j) {
+            if (grid[i][j] == 'Q')
+                return false;
         }
-        for (int i=row-1, j=col+1; i>=0 && j<size; --i, ++j) {
-            if (grid[i][j] == 'Q') return false;
+        for (int i = row - 1, j = col + 1; i >= 0 && j < size; --i, ++j) {
+            if (grid[i][j] == 'Q')
+                return false;
         }
         return true;
     }

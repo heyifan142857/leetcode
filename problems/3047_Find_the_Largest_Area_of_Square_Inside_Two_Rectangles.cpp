@@ -6,7 +6,8 @@ using namespace std;
 
 class Solution {
 public:
-    long long largestSquareArea(vector<vector<int> > &bottomLeft, vector<vector<int> > &topRight) {
+    long long largestSquareArea(vector<vector<int>> &bottomLeft,
+                                vector<vector<int>> &topRight) {
         int n = bottomLeft.size();
         long long maxArea = 0;
 
@@ -26,7 +27,7 @@ public:
                     int side = min(width, height);
 
                     // Update maximum area
-                    maxArea = max(maxArea, (long long) side * side);
+                    maxArea = max(maxArea, (long long)side * side);
                 }
             }
         }

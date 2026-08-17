@@ -18,8 +18,10 @@ public:
             if (str1[i] == 'T') {
                 for (int j = 0; j < m; ++j) {
                     int pos = i + j;
-                    if (w[pos] == '?') w[pos] = str2[j];
-                    else if (w[pos] != str2[j]) return "";
+                    if (w[pos] == '?')
+                        w[pos] = str2[j];
+                    else if (w[pos] != str2[j])
+                        return "";
                 }
             }
         }
@@ -33,15 +35,20 @@ public:
                 bool all_equal = true;
                 for (int j = 0; j < m; ++j) {
                     int pos = i + j;
-                    if (w[pos] == '?' || w[pos] != str2[j]) { all_equal = false; break; }
+                    if (w[pos] == '?' || w[pos] != str2[j]) {
+                        all_equal = false;
+                        break;
+                    }
                 }
-                if (all_equal) return "";
+                if (all_equal)
+                    return "";
             }
         }
 
         // Fill remaining '?' greedily left-to-right with smallest letters
         for (int pos = 0; pos < N; ++pos) {
-            if (w[pos] != '?') continue;
+            if (w[pos] != '?')
+                continue;
             bool placed = false;
             for (char c = 'a'; c <= 'z'; ++c) {
                 w[pos] = c;
@@ -54,25 +61,36 @@ public:
                         bool all_equal = true;
                         for (int j = 0; j < m; ++j) {
                             int p2 = i + j;
-                            if (w[p2] == '?' || w[p2] != str2[j]) { all_equal = false; break; }
+                            if (w[p2] == '?' || w[p2] != str2[j]) {
+                                all_equal = false;
+                                break;
+                            }
                         }
-                        if (all_equal) ok = false;
+                        if (all_equal)
+                            ok = false;
                     }
                 }
-                if (ok) { placed = true; break; }
+                if (ok) {
+                    placed = true;
+                    break;
+                }
             }
-            if (!placed) return "";
+            if (!placed)
+                return "";
         }
 
         string res;
         res.reserve(N);
-        for (char c : w) res.push_back(c);
+        for (char c : w)
+            res.push_back(c);
 
         // Final verification (should hold)
         for (int i = 0; i < n; ++i) {
             string sub = res.substr(i, m);
-            if (str1[i] == 'T' && sub != str2) return "";
-            if (str1[i] == 'F' && sub == str2) return "";
+            if (str1[i] == 'T' && sub != str2)
+                return "";
+            if (str1[i] == 'F' && sub == str2)
+                return "";
         }
         (void)plorvantek; // silence unused warning if any
         return res;

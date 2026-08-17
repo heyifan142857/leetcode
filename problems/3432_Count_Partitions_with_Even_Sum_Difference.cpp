@@ -8,7 +8,7 @@ class Solution {
 public:
     int countPartitions(vector<int> &nums) {
         int sum = 0;
-        for (const auto element: nums) {
+        for (const auto element : nums) {
             sum += element;
         }
         if (sum % 2) {

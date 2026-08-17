@@ -7,11 +7,11 @@ using namespace std;
 
 class Solution {
     vector<vector<string>> ans;
-    bool isPalindrome(string s){
+    bool isPalindrome(string s) {
         int l = 0;
-        int r = s.size()-1;
-        while (l < r){
-            if(s[l] != s[r]){
+        int r = s.size() - 1;
+        while (l < r) {
+            if (s[l] != s[r]) {
                 return false;
             }
             l++;
@@ -19,21 +19,23 @@ class Solution {
         }
         return true;
     }
-    void _partition(string s, int start, int length, vector<string>& sub, int total){
-        if(start+length > s.size()){
-            if(total == s.size()){
+    void _partition(string s, int start, int length, vector<string> &sub,
+                    int total) {
+        if (start + length > s.size()) {
+            if (total == s.size()) {
                 ans.push_back(sub);
             }
             return;
         }
         string cur = s.substr(start, length);
-        if(isPalindrome(cur)){
+        if (isPalindrome(cur)) {
             sub.push_back(cur);
-            _partition(s, start+length, 1, sub, total+cur.size());
+            _partition(s, start + length, 1, sub, total + cur.size());
             sub.pop_back();
         }
-        _partition(s, start, length+1, sub, total);
+        _partition(s, start, length + 1, sub, total);
     }
+
 public:
     vector<vector<string>> partition(string s) {
         vector<string> sub;

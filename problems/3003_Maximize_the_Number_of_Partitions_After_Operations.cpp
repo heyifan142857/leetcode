@@ -1,19 +1,21 @@
 //
 // Created by user on 2025/10/17.
 //
+#include <algorithm>
 #include <string>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 class Solution {
 public:
     int maxPartitionsAfterOperations(string s, int k) {
         int n = s.size();
-        if (k == 26) return 1; // 全部字符可共存，只能有 1 段
+        if (k == 26)
+            return 1; // 全部字符可共存，只能有 1 段
 
         // left[i] = 处理到 s[i-1] 的状态
-        vector<vector<int>> left(n, vector<int>(3, 0));  // [段数, 当前mask, 当前不同字符数]
+        vector<vector<int>> left(
+            n, vector<int>(3, 0)); // [段数, 当前mask, 当前不同字符数]
         int seg = 0, mask = 0, distinct = 0;
         for (int i = 0; i < n - 1; ++i) {
             int bit = 1 << (s[i] - 'a');
@@ -63,9 +65,9 @@ public:
 
             // 判断能否合并、增加或减少一段
             if (left[i][2] == k && right[i][2] == k && combinedCount < 26)
-                curSeg++;  // 两边都满还能加一个新字符，多一段
+                curSeg++; // 两边都满还能加一个新字符，多一段
             else if (combinedCount + 1 <= k)
-                curSeg--;  // 修改后两边能合并，少一段
+                curSeg--; // 修改后两边能合并，少一段
 
             ans = max(ans, curSeg);
         }

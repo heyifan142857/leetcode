@@ -1,16 +1,16 @@
 //
 // Created by azote on 12/3/25.
 //
-#include <vector>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 class Solution {
 public:
-    int countTrapezoids(vector<vector<int> > &points) {
+    int countTrapezoids(vector<vector<int>> &points) {
         unordered_map<int, long long> mp;
 
-        for (auto &p: points) {
+        for (auto &p : points) {
             mp[p[1]]++;
         }
 
@@ -18,7 +18,7 @@ public:
 
         long long sum = 0;
         long long sq_sum = 0;
-        for (auto &kv: mp) {
+        for (auto &kv : mp) {
             const long long c = kv.second;
             const long long pairs = c * (c - 1) / 2 % MOD;
             sum = (sum + pairs) % MOD;

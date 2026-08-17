@@ -3,7 +3,7 @@ using namespace std;
 
 class Solution {
 public:
-    int numSpecial(vector<vector<int>>& mat) {
+    int numSpecial(vector<vector<int>> &mat) {
         int m = mat.size();
         int n = mat[0].size();
         vector<int> rowSum(m, 0);

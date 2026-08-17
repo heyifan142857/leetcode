@@ -7,7 +7,7 @@ using namespace std;
 
 class Solution {
 public:
-    string stoneGameIII(vector<int>& stoneValue) {
+    string stoneGameIII(vector<int> &stoneValue) {
         int n = stoneValue.size();
         vector<int> dp(n + 1, 0);
 
