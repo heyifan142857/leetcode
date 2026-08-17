@@ -10,7 +10,9 @@ This repository stores my LeetCode problem-solving practice in C++ and Rust.
   - `sorting/`: sorting algorithms
   - `string/`: string matching algorithms
   - `searching/`: searching algorithms
-- `data_structures/`: standalone C++ data structure examples
+- `data_structures/`: standalone C++ data structure examples, grouped by category
+  - `tree/`: binary trees, search trees, AVL trees, red-black trees, etc.
+  - `disjoint_set/`: disjoint-set union (union-find)
 - `problems/`: regular C++ LeetCode problems
 - `rust/src/bin/`: regular Rust LeetCode problems managed by Cargo
 - `weekly_contests/`: C++ weekly contest folders
