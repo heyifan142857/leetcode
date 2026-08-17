@@ -4,7 +4,12 @@ This repository stores my LeetCode problem-solving practice in C++ and Rust.
 
 ## Structure
 
-- `algorithms/`: standalone C++ algorithm examples
+- `algorithms/`: standalone C++ algorithm examples, grouped by category
+  - `include/`: reusable data structures shared by algorithms
+  - `graph/`: graph algorithms
+  - `sorting/`: sorting algorithms
+  - `string/`: string matching algorithms
+  - `searching/`: searching algorithms
 - `data_structures/`: standalone C++ data structure examples
 - `problems/`: regular C++ LeetCode problems
 - `rust/src/bin/`: regular Rust LeetCode problems managed by Cargo

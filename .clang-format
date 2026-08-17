@@ -1,0 +1,23 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+
+# Indentation
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+IndentAccessModifiers: false
+AccessModifierOffset: -4
+
+# Braces and parentheses
+BreakBeforeBraces: Attach
+SpaceBeforeParens: ControlStatements
+SpacesInParens: Never
+
+# Includes
+SortIncludes:
+  Enabled: true
+  IgnoreCase: false
+  IgnoreExtension: false
+IncludeBlocks: Regroup
+...
