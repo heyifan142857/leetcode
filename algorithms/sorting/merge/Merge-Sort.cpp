@@ -1,5 +1,6 @@
 // 归并排序将序列递归拆分，再合并两个已经有序的子序列。
-// 它的时间复杂度稳定为 O(n log n)，但需要额外存储空间。
+// 最好、平均和最坏时间复杂度均为 O(n log n)；
+// 空间复杂度 O(n)，是稳定排序。
 
 #include <cstddef>
 #include <iostream>
@@ -48,7 +49,6 @@ void mergeSortRange(vector<int> &values, size_t left, size_t right) {
     mergeRanges(values, left, middle, right);
 }
 
-// 时间复杂度为 O(n log n)，空间复杂度为 O(n)。
 void mergeSort(vector<int> &values) {
     mergeSortRange(values, 0, values.size());
 }

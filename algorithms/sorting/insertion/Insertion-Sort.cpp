@@ -1,5 +1,7 @@
-// 插入排序逐个取出元素，并将其插入前方已经有序的区间。
+// 直接插入排序逐个取出元素，并将其插入前方已经有序的区间。
 // 它实现简单且适合小规模或接近有序的数据。
+// 最好时间复杂度 O(n)，平均和最坏时间复杂度 O(n^2)；
+// 空间复杂度 O(1)，是稳定排序。
 
 #include <cstddef>
 #include <iostream>
@@ -7,7 +9,6 @@
 
 using namespace std;
 
-// 时间复杂度为 O(n^2)，空间复杂度为 O(1)。
 void insertionSort(vector<int> &values) {
     for (size_t i = 1; i < values.size(); ++i) {
         const int current = values[i];
